@@ -1,8 +1,8 @@
 import { useQuery } from '@apollo/react-hooks';
-import { GET_COLLECTION } from '../lib/queries';
+import { GET_SLUG } from '../lib/queries';
 
 const CollectionWrapper = () => {
-  const { loading, data, error } = useQuery(GET_COLLECTION);
+  const { loading, data, error } = useQuery(GET_SLUG);
 
   return (
     <div>
