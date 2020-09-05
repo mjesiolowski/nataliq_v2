@@ -1,8 +1,8 @@
-import CollectionWrapper from '../components/CollectionWrapper';
+import CollectionList from '../components/CollectionList';
 import withApollo from '../lib/apollo';
 
 const App = () => (
-  <CollectionWrapper />
+  <CollectionList />
 );
 
 export default withApollo()(App);
