@@ -1,8 +1,8 @@
-import CollectionList from '../components/CollectionList';
+import CollectionCardList from '../components/CollectionCardList';
 import withApollo from '../lib/apollo';
 
 const App = () => (
-  <CollectionList />
+  <CollectionCardList />
 );
 
 export default withApollo()(App);

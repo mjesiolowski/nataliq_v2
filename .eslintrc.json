@@ -32,6 +32,7 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": "off",
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "jsx-quotes": [2, "prefer-single"]
   }
 }
