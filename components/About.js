@@ -5,14 +5,13 @@ import { GET_ABOUT_US } from '../lib/queries';
 const About = () => {
   const { loading, data, error } = useQuery(GET_ABOUT_US);
 
-  const { ourSalon, aboutUs } = data?.aboutCollection?.items[0] || {};
-  console.log({ ourSalon, aboutUs });
+  const { aboutUs } = data?.aboutCollection?.items[0] || {};
+  console.log({ aboutUs });
 
   return (
     <>
       <div>ABOUT</div>
       <ReactMarkdown source={aboutUs} />
-      <ReactMarkdown source={ourSalon} />
     </>
   );
 };
