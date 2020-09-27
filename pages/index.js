@@ -1,6 +1,6 @@
 import CollectionCardList from '../components/CollectionCardList';
 import About from '../components/About';
-import withApollo from '../lib/apollo';
+// import withApollo, { apolloClient } from '../lib/apollo';
 
 const App = () => (
   <>
@@ -9,4 +9,4 @@ const App = () => (
   </>
 );
 
-export default withApollo()(App);
+export default App;

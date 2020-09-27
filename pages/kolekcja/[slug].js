@@ -1,6 +1,10 @@
+import { useQuery } from '@apollo/react-hooks';
 import getSlugDetails from '../../lib/collection';
+import { GET_COLLECTION_IMAGES } from '../../lib/queries';
 
-export default function Collection({ data }) {
+export default function Collection({ slug }) {
+  console.log({ slug });
+  const { loading, data, error } = useQuery(GET_COLLECTION_IMAGES);
   console.log({ data });
   return <div>Kolekcja</div>;
 }
@@ -21,10 +25,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const data = params.slug;
+  const { slug } = params;
   return {
     props: {
-      data,
+      slug,
     },
   };
 }

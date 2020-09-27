@@ -1,11 +1,17 @@
+import Link from 'next/link';
 import {
   MOBILE_BREAKPOINT,
   DESKTOP_BREAKPOINT,
   COLLECTION_DEFAULT_ALT_TEXT,
+  COLLECTION_HREF,
+  SUBCOLLECTION_PREFIX,
+  COLLECTION_CARD_LINK_TEXT,
 } from '../constants';
 
 const CollectionCard = ({
   title,
+  slug,
+  isSubcollectionParent,
   mainImageDesktop,
   mainImageTablet,
   mainImageMobile,
@@ -16,6 +22,8 @@ const CollectionCard = ({
 
   const imgAlt = mainImageDesktop?.description;
 
+  const collectionLink = `/${isSubcollectionParent ? SUBCOLLECTION_PREFIX : ''}${COLLECTION_HREF}${slug}`;
+  console.log({ collectionLink });
   return (
     <div>
       <h2>{title}</h2>
@@ -34,6 +42,12 @@ const CollectionCard = ({
           alt={imgAlt || COLLECTION_DEFAULT_ALT_TEXT}
         />
       </picture>
+
+      <Link href={collectionLink}>
+        {/* TODO SHOULD FETCH FROM CMS? */}
+        <a>{COLLECTION_CARD_LINK_TEXT}</a>
+      </Link>
+
     </div>
   );
 };
