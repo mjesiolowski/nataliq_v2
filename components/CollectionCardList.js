@@ -1,32 +1,22 @@
 import { useQuery } from '@apollo/react-hooks';
-import { GET_COLLECTION_DETAILS } from '../lib/queries';
-import Collection from './CollectionCard';
+import { GET_ALL_COLLECTIONS_SLUGS } from '../lib/queries';
+import CollectionCard from './CollectionCard';
 
 const CollectionCardList = () => {
-  const { loading, data, error } = useQuery(GET_COLLECTION_DETAILS);
+  const { loading, data, error } = useQuery(GET_ALL_COLLECTIONS_SLUGS);
 
   const collection = data?.collectionCollection?.items || [];
 
   const filterCollection = (collectionList) => collectionList.filter(
-    (collectionItem) => collectionItem.isSubcollection === false,
+    (collectionItem) => collectionItem.hideOnHomepage === false,
   );
 
-  const renderCollection = (collectionList) => collectionList.map(({
-    title,
+  const renderCollectionCard = (collectionList) => collectionList.map(({
     slug,
-    isSubcollectionParent,
-    mainImageDesktop,
-    mainImageTablet,
-    mainImageMobile,
   }) => (
-    <Collection
-      key={title}
-      title={title}
+    <CollectionCard
+      key={slug}
       slug={slug}
-      isSubcollectionParent={isSubcollectionParent}
-      mainImageDesktop={mainImageDesktop}
-      mainImageTablet={mainImageTablet}
-      mainImageMobile={mainImageMobile}
     />
   ));
 
@@ -37,7 +27,7 @@ const CollectionCardList = () => {
       <h1>Nasze kolekcje</h1>
       {loading && !data
         ? <h1>Ładowanie naszych kolekcji</h1>
-        : renderCollection(filteredCollection)}
+        : renderCollectionCard(filteredCollection)}
     </div>
   );
 };
