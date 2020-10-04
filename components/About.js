@@ -6,7 +6,7 @@ const About = () => {
   const { loading, data, error } = useQuery(GET_ABOUT_US);
 
   const { aboutUs } = data?.aboutCollection?.items[0] || {};
-  console.log({ aboutUs });
+  // console.log({ aboutUs });
 
   return (
     <>
