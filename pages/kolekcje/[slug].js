@@ -23,7 +23,8 @@ export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const subcollectionSlugs = await getSubcollectionSlugs(slug);
-
+  // map through subcollectionSlugs and get GET_COLLECTION_CARD_DETAILS,
+  // pass it down as props and then map based on these props to render CollectionCard
   return {
     props: {
       slug,

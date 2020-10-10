@@ -1,12 +1,6 @@
-import { useQuery } from '@apollo/react-hooks';
-import { GET_ALL_COLLECTIONS_SLUGS } from '../lib/queries';
 import CollectionCard from './CollectionCard';
 
-const CollectionCardList = () => {
-  const { loading, data, error } = useQuery(GET_ALL_COLLECTIONS_SLUGS);
-
-  const collection = data?.collectionCollection?.items || [];
-
+const CollectionCardList = ({ collectionSlugs }) => {
   const filterCollection = (collectionList) => collectionList.filter(
     (collectionItem) => collectionItem.hideOnHomepage === false,
   );
@@ -20,14 +14,12 @@ const CollectionCardList = () => {
     />
   ));
 
-  const filteredCollection = filterCollection(collection);
+  const filteredCollection = filterCollection(collectionSlugs);
 
   return (
     <div>
       <h1>Nasze kolekcje</h1>
-      {loading && !data
-        ? <h1>Ładowanie naszych kolekcji</h1>
-        : renderCollectionCard(filteredCollection)}
+      {renderCollectionCard(filteredCollection)}
     </div>
   );
 };
