@@ -1,6 +1,7 @@
 import CollectionCard from './CollectionCard';
 
 const CollectionCardList = ({ collectionSlugs }) => {
+  // get collectionCardDetail in index.js and pass it dwon to CollectionCardList
   const filterCollection = (collectionList) => collectionList.filter(
     (collectionItem) => collectionItem.hideOnHomepage === false,
   );

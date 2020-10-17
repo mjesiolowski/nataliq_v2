@@ -1,6 +1,7 @@
 import {
   getAllSlugs,
-  getSubcollectionSlugs,
+  getSubcollectionsSlugs,
+  getCollectionCardDetails,
 } from '../../lib/collection';
 import CollectionCard from '../../components/CollectionCard';
 
@@ -22,33 +23,48 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  const subcollectionSlugs = await getSubcollectionSlugs(slug);
-  // map through subcollectionSlugs and get GET_COLLECTION_CARD_DETAILS,
-  // pass it down as props and then map based on these props to render CollectionCard
+  const subcollectionsSlugs = await getSubcollectionsSlugs(slug);
+  const collectionCardDetails = await getCollectionCardDetails(subcollectionsSlugs);
+
   return {
     props: {
       slug,
-      subcollectionSlugs,
+      subcollectionsSlugs,
+      collectionCardDetails,
     },
   };
 }
 
 export default function Collections({
   slug,
-  subcollectionSlugs,
+  subcollectionsSlugs,
+  collectionCardDetails,
 }) {
   console.log({
     slug,
-    subcollectionSlugs,
+    subcollectionsSlugs,
+    collectionCardDetails,
   });
 
-  const renderSubcollectionCard = () => subcollectionSlugs.map(((subcollectionSlug) => (
+  const renderSubcollectionCard = () => collectionCardDetails.map((({
+    hideOnHomepage,
+    isMultipleCollection,
+    mainImageDesktop,
+    mainImageTablet,
+    mainImageMobile,
+    title,
+  }, index) => (
     <CollectionCard
-      key={subcollectionSlug}
-      slug={subcollectionSlug}
+      key={title}
+      slug={subcollectionsSlugs[index]}
+      hideOnHomepage={hideOnHomepage}
+      isMultipleCollection={isMultipleCollection}
+      mainImageDesktop={mainImageDesktop}
+      mainImageTablet={mainImageTablet}
+      mainImageMobile={mainImageMobile}
+      title={title}
     />
   )));
-
   return (
     <>
       <div>Kolekcje</div>

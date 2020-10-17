@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useQuery } from '@apollo/react-hooks';
 import {
   MOBILE_BREAKPOINT,
   DESKTOP_BREAKPOINT,
@@ -8,21 +7,22 @@ import {
   COLLECTIONS_HREF,
   COLLECTION_CARD_LINK_TEXT,
 } from '../constants';
-import { GET_COLLECTION_CARD_DETAILS } from '../lib/queries';
 
 const CollectionCard = ({
+  hideOnHomepage,
+  isMultipleCollection: isMultiple,
+  mainImageDesktop,
+  mainImageTablet,
+  mainImageMobile,
+  title,
   slug,
 }) => {
-  const { loading, data, error } = useQuery(GET_COLLECTION_CARD_DETAILS, { variables: { slug } });
-
-  const collection = data?.collectionCollection?.items[0] || [];
-
-  const desktopImg = collection?.mainImageDesktop?.url;
-  const tabletImg = collection?.mainImageTablet?.url;
-  const mobileImg = collection?.mainImageMobile?.url;
-  const imgAlt = collection?.mainImageDesktop?.description || COLLECTION_DEFAULT_ALT_TEXT;
-  const collectionTitle = collection?.title;
-  const isMultipleCollection = collection?.isMultipleCollection || false;
+  const desktopImg = mainImageDesktop?.url;
+  const tabletImg = mainImageTablet?.url;
+  const mobileImg = mainImageMobile?.url;
+  const imgAlt = mainImageDesktop?.description || COLLECTION_DEFAULT_ALT_TEXT;
+  const collectionTitle = title;
+  const isMultipleCollection = isMultiple || false;
 
   const collectionLink = `/${isMultipleCollection ? COLLECTIONS_HREF : COLLECTION_HREF}${slug}`;
 

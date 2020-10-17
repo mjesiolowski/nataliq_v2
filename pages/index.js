@@ -1,9 +1,6 @@
 import CollectionCardList from '../components/CollectionCardList';
 import About from '../components/About';
-import {
-  getAllSlugs,
-} from '../lib/collection';
-// import withApollo, { apolloClient } from '../lib/apollo';
+import { getAllSlugs } from '../lib/collection';
 
 export async function getStaticProps() {
   const collectionSlugs = await getAllSlugs();
