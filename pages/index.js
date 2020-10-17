@@ -1,10 +1,23 @@
 import CollectionCardList from '../components/CollectionCardList';
 import About from '../components/About';
-// import withApollo, { apolloClient } from '../lib/apollo';
+import { getAllSlugs } from '../lib/collection';
 
-const App = () => (
+export async function getStaticProps() {
+  const collectionSlugs = await getAllSlugs();
+
+  return {
+    props: {
+      collectionSlugs,
+    },
+  };
+}
+
+const App = ({ collectionSlugs }) => (
   <>
-    <CollectionCardList />
+    <CollectionCardList
+      collectionSlugs={collectionSlugs}
+    />
+    {/* Pass down props do About */}
     <About />
   </>
 );
