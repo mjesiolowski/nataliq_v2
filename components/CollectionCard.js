@@ -9,7 +9,6 @@ import {
 } from '../constants';
 
 const CollectionCard = ({
-  hideOnHomepage,
   isMultipleCollection: isMultiple,
   mainImageDesktop,
   mainImageTablet,

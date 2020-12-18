@@ -1,26 +1,37 @@
 import CollectionCard from './CollectionCard';
 
-const CollectionCardList = ({ collectionSlugs }) => {
-  // get collectionCardDetail in index.js and pass it dwon to CollectionCardList
-  const filterCollection = (collectionList) => collectionList.filter(
-    (collectionItem) => collectionItem.hideOnHomepage === false,
-  );
-
-  const renderCollectionCard = (collectionList) => collectionList.map(({
+const CollectionCardList = ({ collectionCardDetailsList }) => {
+  const renderCollectionCard = (collectionCardList) => collectionCardList?.map((({
+    isMultipleCollection,
+    mainImageDesktop,
+    mainImageTablet,
+    mainImageMobile,
+    title,
     slug,
-  }) => (
-    <CollectionCard
-      key={slug}
-      slug={slug}
-    />
-  ));
+    hideOnHomepage,
+  }) => {
+    if (!hideOnHomepage) {
+      return (
+        <CollectionCard
+          key={title}
+          slug={slug}
+          isMultipleCollection={isMultipleCollection}
+          mainImageDesktop={mainImageDesktop}
+          mainImageTablet={mainImageTablet}
+          mainImageMobile={mainImageMobile}
+          title={title}
+        />
+      );
+    }
 
-  const filteredCollection = filterCollection(collectionSlugs);
+    return null;
+  }
+  ));
 
   return (
     <div>
       <h1>Nasze kolekcje</h1>
-      {renderCollectionCard(filteredCollection)}
+      {renderCollectionCard(collectionCardDetailsList)}
     </div>
   );
 };

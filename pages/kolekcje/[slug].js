@@ -24,40 +24,31 @@ export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const subcollectionsSlugs = await getSubcollectionsSlugs(slug);
-  const collectionCardDetails = await getCollectionCardDetails(subcollectionsSlugs);
+  const collectionCardDetailsList = await getCollectionCardDetails(subcollectionsSlugs);
 
   return {
     props: {
       slug,
       subcollectionsSlugs,
-      collectionCardDetails,
+      collectionCardDetailsList,
     },
   };
 }
 
 export default function Collections({
-  slug,
-  subcollectionsSlugs,
-  collectionCardDetails,
+  collectionCardDetailsList,
 }) {
-  console.log({
-    slug,
-    subcollectionsSlugs,
-    collectionCardDetails,
-  });
-
-  const renderSubcollectionCard = () => collectionCardDetails.map((({
-    hideOnHomepage,
+  const renderSubcollectionCard = (collectionCardList) => collectionCardList.map((({
     isMultipleCollection,
     mainImageDesktop,
     mainImageTablet,
     mainImageMobile,
     title,
-  }, index) => (
+    slug,
+  }) => (
     <CollectionCard
       key={title}
-      slug={subcollectionsSlugs[index]}
-      hideOnHomepage={hideOnHomepage}
+      slug={slug}
       isMultipleCollection={isMultipleCollection}
       mainImageDesktop={mainImageDesktop}
       mainImageTablet={mainImageTablet}
@@ -68,7 +59,7 @@ export default function Collections({
   return (
     <>
       <div>Kolekcje</div>
-      {renderSubcollectionCard()}
+      {renderSubcollectionCard(collectionCardDetailsList)}
     </>
   );
 }
