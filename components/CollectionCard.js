@@ -1,25 +1,20 @@
 import Link from 'next/link';
 import {
-  MOBILE_BREAKPOINT,
-  DESKTOP_BREAKPOINT,
   COLLECTION_DEFAULT_ALT_TEXT,
   COLLECTION_HREF,
   COLLECTIONS_HREF,
   COLLECTION_CARD_LINK_TEXT,
 } from '../constants';
+import CollectionImage from './CollectionImage';
 
 const CollectionCard = ({
   isMultipleCollection: isMultiple,
-  mainImageDesktop,
-  mainImageTablet,
-  mainImageMobile,
+  collectionMainImage,
   title,
   slug,
 }) => {
-  const desktopImg = mainImageDesktop?.url;
-  const tabletImg = mainImageTablet?.url;
-  const mobileImg = mainImageMobile?.url;
-  const imgAlt = mainImageDesktop?.description || COLLECTION_DEFAULT_ALT_TEXT;
+  const { desktopImage, tabletImage, mobileImage } = collectionMainImage;
+  const alt = collectionMainImage?.alt || COLLECTION_DEFAULT_ALT_TEXT;
   const collectionTitle = title;
   const isMultipleCollection = isMultiple || false;
 
@@ -29,20 +24,13 @@ const CollectionCard = ({
     <div>
       <h2>{collectionTitle}</h2>
 
-      <picture>
-        <source
-          media={`(max-width: ${MOBILE_BREAKPOINT})`}
-          srcSet={mobileImg}
-        />
-        <source
-          media={`(max-width: ${DESKTOP_BREAKPOINT})`}
-          srcSet={tabletImg}
-        />
-        <img
-          src={desktopImg}
-          alt={imgAlt}
-        />
-      </picture>
+      <CollectionImage
+        alt={alt}
+        title={title}
+        desktopImage={desktopImage}
+        tabletImage={tabletImage}
+        mobileImage={mobileImage}
+      />
 
       <Link href={collectionLink}>
         <a>{COLLECTION_CARD_LINK_TEXT}</a>

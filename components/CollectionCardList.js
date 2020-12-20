@@ -3,11 +3,9 @@ import CollectionCard from './CollectionCard';
 const CollectionCardList = ({ collectionCardDetailsList }) => {
   const renderCollectionCard = (collectionCardList) => collectionCardList?.map((({
     isMultipleCollection,
-    mainImageDesktop,
-    mainImageTablet,
-    mainImageMobile,
     title,
     slug,
+    collectionMainImage,
     hideOnHomepage,
   }) => {
     if (!hideOnHomepage) {
@@ -15,10 +13,8 @@ const CollectionCardList = ({ collectionCardDetailsList }) => {
         <CollectionCard
           key={title}
           slug={slug}
+          collectionMainImage={collectionMainImage}
           isMultipleCollection={isMultipleCollection}
-          mainImageDesktop={mainImageDesktop}
-          mainImageTablet={mainImageTablet}
-          mainImageMobile={mainImageMobile}
           title={title}
         />
       );

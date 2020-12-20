@@ -1,7 +1,9 @@
+import { v4 as uuidv4 } from 'uuid';
 import {
   getAllSlugs,
   getCollectionImages,
 } from '../../lib/collection';
+import CollectionImage from '../../components/CollectionImage';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -34,5 +36,36 @@ export default function Collection({
   slug,
   images,
 }) {
-  return <div>Kolekcja</div>;
+  const renderCollectionImages = (imagesData) => imagesData.map(
+    (imageData) => {
+      const {
+        alt,
+        title,
+        desktopImage,
+        tabletImage,
+        mobileImage,
+      } = imageData;
+      return (
+        <CollectionImage
+          key={uuidv4()}
+          alt={alt}
+          title={title}
+          desktopImage={desktopImage}
+          tabletImage={tabletImage}
+          mobileImage={mobileImage}
+        />
+      );
+    },
+  );
+
+  return (
+    <>
+      <div>
+        Kolekcja
+        {' '}
+        {slug}
+      </div>
+      {renderCollectionImages(images)}
+    </>
+  );
 }
