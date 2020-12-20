@@ -3,7 +3,7 @@ import {
   getSubcollectionsSlugs,
   getCollectionCardDetails,
 } from '../../lib/collection';
-import CollectionCard from '../../components/CollectionCard';
+import renderSubcollectionCard from '../../helpers/renderCollectionCard';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs({ isMultipleCollection: true });
@@ -38,24 +38,6 @@ export async function getStaticProps({ params }) {
 export default function Collections({
   collectionCardDetailsList,
 }) {
-  const renderSubcollectionCard = (collectionCardList) => collectionCardList.map((({
-    isMultipleCollection,
-    mainImageDesktop,
-    mainImageTablet,
-    mainImageMobile,
-    title,
-    slug,
-  }) => (
-    <CollectionCard
-      key={title}
-      slug={slug}
-      isMultipleCollection={isMultipleCollection}
-      mainImageDesktop={mainImageDesktop}
-      mainImageTablet={mainImageTablet}
-      mainImageMobile={mainImageMobile}
-      title={title}
-    />
-  )));
   return (
     <>
       <div>Kolekcje</div>

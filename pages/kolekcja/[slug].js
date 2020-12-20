@@ -34,6 +34,5 @@ export default function Collection({
   slug,
   images,
 }) {
-  console.log(images);
   return <div>Kolekcja</div>;
 }
