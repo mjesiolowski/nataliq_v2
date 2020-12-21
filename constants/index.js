@@ -6,3 +6,5 @@ export const COLLECTION_CARD_LINK_TEXT = 'Przejdź do kolekcji';
 
 export const COLLECTION_HREF = 'kolekcja/';
 export const COLLECTIONS_HREF = 'kolekcje/';
+
+export const BLOG_POSTS_LIMIT = 5;
