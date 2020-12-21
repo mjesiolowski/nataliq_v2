@@ -1,27 +1,29 @@
 import CollectionCardList from '../components/CollectionCardList';
 import About from '../components/About';
-import { getAllSlugs, getCollectionCardDetails } from '../lib/collection';
+import { getAllSlugs, getCollectionCardDetails, getAboutUs } from '../lib/collection';
 
 export async function getStaticProps() {
   const collectionSlugs = await getAllSlugs();
   const slugList = collectionSlugs.map(({ slug }) => slug);
   const collectionCardDetailsList = await getCollectionCardDetails(slugList);
+  const aboutUsData = await getAboutUs();
 
   return {
     props: {
-      collectionSlugs,
       collectionCardDetailsList,
+      aboutUsData,
     },
   };
 }
 
-const App = ({ collectionCardDetailsList }) => (
+const App = ({ collectionCardDetailsList, aboutUsData }) => (
   <>
     <CollectionCardList
       collectionCardDetailsList={collectionCardDetailsList}
     />
-    {/* Pass down props do About */}
-    <About />
+    <About
+      aboutUsData={aboutUsData}
+    />
   </>
 );
 
