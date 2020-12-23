@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import { getBlogPosts, getBlogPostsLength } from '../../lib/collection';
 import { BLOG_POSTS_LIMIT, BLOG_POST_HREF } from '../../constants';
+import renderPagination from '../../helpers/pagination.helper';
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
@@ -11,33 +12,16 @@ export async function getServerSideProps({ params }) {
   const blogPostsLength = await getBlogPostsLength();
   const maxSubpagesNumber = Math.ceil(blogPostsLength / BLOG_POSTS_LIMIT);
 
-  console.log({ maxSubpagesNumber });
-
   return {
     props: {
       blogPostsData,
       maxSubpagesNumber,
+      slug,
     },
   };
 }
 
-const Blog = ({ blogPostsData, maxSubpagesNumber }) => {
-  const renderSubpages = (subpagesCount) => {
-    const subpagesList = [...Array(subpagesCount).keys()];
-    const visibleSubpages = 4;
-    return (
-      subpagesList.map((item, index) => {
-        const subpageNumber = index + 1;
-        if (subpageNumber < visibleSubpages || subpageNumber === subpagesCount) {
-          return (
-            <Link href={`${subpageNumber}`}>
-              <a>{subpageNumber}</a>
-            </Link>
-          );
-        }
-      }));
-  };
-
+const Blog = ({ blogPostsData, maxSubpagesNumber, slug }) => {
   const renderTitles = (blogPostsList) => blogPostsList.map(
     ({ title }) => {
       const titleHref = title.toLowerCase().split(' ').join('-');
@@ -52,13 +36,13 @@ const Blog = ({ blogPostsData, maxSubpagesNumber }) => {
     },
   );
   return (
-    <div>
+    <>
       <span>Blog</span>
       <ul>
         {renderTitles(blogPostsData)}
-        {renderSubpages(maxSubpagesNumber)}
+        {renderPagination(maxSubpagesNumber, slug)}
       </ul>
-    </div>
+    </>
   );
 };
 
