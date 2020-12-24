@@ -31,7 +31,6 @@ const Blog = ({ blogPostsTitles, maxSubpagesNumber, slug }) => {
           <Link href={`/${BLOG_POST_HREF}${titleHref}`}>
             <a>{title}</a>
           </Link>
-
         </li>
       );
     },
@@ -41,8 +40,8 @@ const Blog = ({ blogPostsTitles, maxSubpagesNumber, slug }) => {
       <span>Blog</span>
       <ul>
         {renderTitles(blogPostsTitles)}
-        {renderPagination(maxSubpagesNumber, slug)}
       </ul>
+      {renderPagination(maxSubpagesNumber, slug)}
     </>
   );
 };

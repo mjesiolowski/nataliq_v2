@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { v4 as uuidv4 } from 'uuid';
+import React from 'react';
 
 const renderPagination = (subpagesCount, slug) => {
   const subpagesList = [...Array(subpagesCount).keys()];
@@ -12,13 +14,13 @@ const renderPagination = (subpagesCount, slug) => {
 
       if (subpageIndex === currentSlug) {
         return (
-          <span>{subpageIndex}</span>
+          <span key={uuidv4()}>{subpageIndex}</span>
         );
       }
 
       if (isFirstPage || isLastPage) {
         return (
-          <Link href={`${subpageIndex}`}>
+          <Link key={uuidv4()} href={`/${subpageIndex}`}>
             <a>{subpageIndex}</a>
           </Link>
         );
@@ -26,23 +28,23 @@ const renderPagination = (subpagesCount, slug) => {
 
       if (subpageIndex === currentSlug + 1) {
         return (
-          <>
-            <Link href={`${subpageIndex}`}>
+          <React.Fragment key={uuidv4()}>
+            <Link href={`/${subpageIndex}`}>
               <a>{subpageIndex}</a>
             </Link>
             <span>...</span>
-          </>
+          </React.Fragment>
         );
       }
 
       if (subpageIndex === currentSlug - 1) {
         return (
-          <>
+          <React.Fragment key={uuidv4()}>
             <span>...</span>
-            <Link href={`${subpageIndex}`}>
+            <Link href={`/${subpageIndex}`}>
               <a>{subpageIndex}</a>
             </Link>
-          </>
+          </React.Fragment>
         );
       }
 

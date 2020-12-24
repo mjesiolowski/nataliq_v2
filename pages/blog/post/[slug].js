@@ -1,4 +1,6 @@
+import ReactMarkdown from 'react-markdown';
 import { getBlogPost } from '../../../lib/collection';
+import Image from '../../../components/Image';
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
@@ -16,8 +18,21 @@ export async function getServerSideProps({ params }) {
 const BlogPost = ({ blogPostData }) => {
   const { content, title, image } = blogPostData;
   console.log({ content, title, image });
+  const {
+    desktopImage, tabletImage, mobileImage, alt,
+  } = image;
   return (
-    <p>BLOGPOST</p>
+    <>
+      <p>BLOGPOST</p>
+      <Image
+        alt={alt}
+        title={title}
+        desktopImage={desktopImage}
+        tabletImage={tabletImage}
+        mobileImage={mobileImage}
+      />
+      <ReactMarkdown source={content} />
+    </>
   );
 };
 

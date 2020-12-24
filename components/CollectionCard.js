@@ -5,7 +5,7 @@ import {
   COLLECTIONS_HREF,
   COLLECTION_CARD_LINK_TEXT,
 } from '../constants';
-import CollectionImage from './CollectionImage';
+import Image from './Image';
 
 const CollectionCard = ({
   isMultipleCollection: isMultiple,
@@ -24,7 +24,7 @@ const CollectionCard = ({
     <div>
       <h2>{collectionTitle}</h2>
 
-      <CollectionImage
+      <Image
         alt={alt}
         title={title}
         desktopImage={desktopImage}

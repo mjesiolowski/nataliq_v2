@@ -3,7 +3,7 @@ import {
   getAllSlugs,
   getCollectionImages,
 } from '../../lib/collection';
-import CollectionImage from '../../components/CollectionImage';
+import Image from '../../components/Image';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -46,7 +46,7 @@ export default function Collection({
         mobileImage,
       } = imageData;
       return (
-        <CollectionImage
+        <Image
           key={uuidv4()}
           alt={alt}
           title={title}
