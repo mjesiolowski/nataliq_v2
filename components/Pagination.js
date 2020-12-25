@@ -3,15 +3,15 @@ import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import { BLOG_HREF } from '../constants';
 
-const renderPagination = (subpagesCount, slug) => {
-  const subpagesList = [...Array(subpagesCount).keys()];
+const Pagination = ({ subpagesCount: maxSubpagesCount, slug }) => {
+  const subpagesList = [...Array(maxSubpagesCount).keys()];
   const currentSlug = Number(slug);
 
   return (
     subpagesList.map((item, index) => {
       const subpageIndex = index + 1;
       const isFirstPage = subpageIndex === 1;
-      const isLastPage = subpageIndex === subpagesCount;
+      const isLastPage = subpageIndex === maxSubpagesCount;
 
       if (subpageIndex === currentSlug) {
         return (
@@ -27,6 +27,16 @@ const renderPagination = (subpagesCount, slug) => {
         );
       }
 
+      if (subpageIndex === currentSlug + 1 && subpageIndex > maxSubpagesCount - 2) {
+        return (
+          <React.Fragment key={uuidv4()}>
+            <Link href={`/${BLOG_HREF}${subpageIndex}`}>
+              <a>{subpageIndex}</a>
+            </Link>
+          </React.Fragment>
+        );
+      }
+
       if (subpageIndex === currentSlug + 1) {
         return (
           <React.Fragment key={uuidv4()}>
@@ -34,6 +44,16 @@ const renderPagination = (subpagesCount, slug) => {
               <a>{subpageIndex}</a>
             </Link>
             <span>...</span>
+          </React.Fragment>
+        );
+      }
+
+      if (subpageIndex === currentSlug - 1 && subpageIndex <= 2) {
+        return (
+          <React.Fragment key={uuidv4()}>
+            <Link href={`/${BLOG_HREF}${subpageIndex}`}>
+              <a>{subpageIndex}</a>
+            </Link>
           </React.Fragment>
         );
       }
@@ -53,4 +73,4 @@ const renderPagination = (subpagesCount, slug) => {
     }));
 };
 
-export default renderPagination;
+export default Pagination;

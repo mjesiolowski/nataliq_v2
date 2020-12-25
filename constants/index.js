@@ -9,4 +9,4 @@ export const COLLECTIONS_HREF = 'kolekcje/';
 export const BLOG_POST_HREF = 'blog/post/';
 export const BLOG_HREF = 'blog/';
 
-export const BLOG_POSTS_LIMIT = 2;
+export const BLOG_POSTS_LIMIT = 5;

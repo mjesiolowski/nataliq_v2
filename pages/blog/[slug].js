@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import { getBlogPostsTitles } from '../../lib/collection';
-import { BLOG_POSTS_LIMIT, BLOG_POST_HREF } from '../../constants';
-import renderPagination from '../../helpers/pagination.helper';
+import { BLOG_POSTS_LIMIT, BLOG_POST_HREF, BLOG_HREF } from '../../constants';
+import Pagination from '../../components/Pagination';
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
@@ -23,6 +23,17 @@ export async function getServerSideProps({ params }) {
 }
 
 const Blog = ({ blogPostsTitles, maxSubpagesNumber, slug }) => {
+  if (slug > maxSubpagesNumber) {
+    return (
+      <>
+        <p>Ta strona nie istnieje.</p>
+        <Link href={`/${BLOG_HREF}1`}>
+          <a>Powrót do bloga</a>
+        </Link>
+      </>
+    );
+  }
+
   const renderTitles = (blogPostsTitlesList) => blogPostsTitlesList.map(
     ({ title }) => {
       const titleHref = title.toLowerCase().split(' ').join('-');
@@ -41,7 +52,7 @@ const Blog = ({ blogPostsTitles, maxSubpagesNumber, slug }) => {
       <ul>
         {renderTitles(blogPostsTitles)}
       </ul>
-      {renderPagination(maxSubpagesNumber, slug)}
+      <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
     </>
   );
 };
