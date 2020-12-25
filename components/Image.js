@@ -4,7 +4,7 @@ import {
   COLLECTION_DEFAULT_ALT_TEXT,
 } from '../constants';
 
-const CollectionImage = ({
+const Image = ({
   alt,
   title,
   desktopImage,
@@ -38,4 +38,4 @@ const CollectionImage = ({
     </div>
   );
 };
-export default CollectionImage;
+export default Image;
