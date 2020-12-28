@@ -4,7 +4,7 @@ import {
   getCollectionCardDetails,
 } from '../../lib/collection';
 
-import CollectionCard from '../../components/CollectionCard';
+import CollectionCard from '../../components/CollectionCard/CollectionCard';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs({ isMultipleCollection: true });

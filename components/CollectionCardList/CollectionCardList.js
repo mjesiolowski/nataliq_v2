@@ -1,4 +1,4 @@
-import CollectionCard from './CollectionCard';
+import CollectionCard from '../CollectionCard/CollectionCard';
 
 const CollectionCardList = ({ collectionCardDetailsList }) => {
   const renderCollectionCard = (collectionCardList) => collectionCardList?.map((({

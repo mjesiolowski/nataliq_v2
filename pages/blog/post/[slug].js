@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import { getBlogPost } from '../../../lib/collection';
-import Image from '../../../components/Image';
+import Image from '../../../components/Image/Image';
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;

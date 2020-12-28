@@ -1,8 +1,9 @@
+import styles from './image.module.css';
 import {
   MOBILE_BREAKPOINT,
   DESKTOP_BREAKPOINT,
   COLLECTION_DEFAULT_ALT_TEXT,
-} from '../constants';
+} from '../../constants';
 
 const Image = ({
   alt,
@@ -33,6 +34,7 @@ const Image = ({
         <img
           src={desktopImg}
           alt={imgAlt}
+          className={styles.image}
         />
       </picture>
     </div>

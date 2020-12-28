@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
-import { BLOG_HREF } from '../constants';
+import { BLOG_HREF } from '../../constants';
 
 const Pagination = ({ subpagesCount: maxSubpagesCount, slug }) => {
   const subpagesList = [...Array(maxSubpagesCount).keys()];
