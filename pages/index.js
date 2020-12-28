@@ -1,5 +1,5 @@
-import CollectionCardList from '../components/CollectionCardList';
-import About from '../components/About';
+import CollectionCardList from '../components/CollectionCardList/CollectionCardList';
+import About from '../components/About/About';
 import { getAllSlugs, getCollectionCardDetails, getAboutUs } from '../lib/collection';
 
 export async function getStaticProps() {

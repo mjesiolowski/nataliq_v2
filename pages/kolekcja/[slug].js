@@ -3,7 +3,7 @@ import {
   getAllSlugs,
   getCollectionImages,
 } from '../../lib/collection';
-import Image from '../../components/Image';
+import ImageWithModal from '../../components/ImageWithModal/ImageWithModal';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -37,7 +37,7 @@ export default function Collection({
   images,
 }) {
   const renderCollectionImages = (imagesData) => imagesData.map(
-    (imageData) => {
+    (imageData, index) => {
       const {
         alt,
         title,
@@ -46,13 +46,15 @@ export default function Collection({
         mobileImage,
       } = imageData;
       return (
-        <Image
+        <ImageWithModal
           key={uuidv4()}
+          index={index}
           alt={alt}
           title={title}
           desktopImage={desktopImage}
           tabletImage={tabletImage}
           mobileImage={mobileImage}
+          images={images}
         />
       );
     },
@@ -60,12 +62,14 @@ export default function Collection({
 
   return (
     <>
+      {/* <Modal images={images} index={0} /> */}
       <div>
         Kolekcja
         {' '}
         {slug}
       </div>
       {renderCollectionImages(images)}
+      {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
     </>
   );
 }

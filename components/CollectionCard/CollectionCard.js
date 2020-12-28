@@ -4,8 +4,8 @@ import {
   COLLECTION_HREF,
   COLLECTIONS_HREF,
   COLLECTION_CARD_LINK_TEXT,
-} from '../constants';
-import Image from './Image';
+} from '../../constants';
+import Image from '../Image/Image';
 
 const CollectionCard = ({
   isMultipleCollection: isMultiple,

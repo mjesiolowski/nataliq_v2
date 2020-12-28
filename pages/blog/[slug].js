@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Link from 'next/link';
 import { getBlogPostsTitles } from '../../lib/collection';
 import { BLOG_POSTS_LIMIT, BLOG_POST_HREF, BLOG_HREF } from '../../constants';
-import Pagination from '../../components/Pagination';
+import Pagination from '../../components/Pagination/Pagination';
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
