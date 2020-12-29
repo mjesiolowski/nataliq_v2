@@ -25,7 +25,7 @@ const CollectionCardList = ({ collectionCardDetailsList }) => {
   ));
 
   return (
-    <div>
+    <div id='collection'>
       <h1>Nasze kolekcje</h1>
       {renderCollectionCard(collectionCardDetailsList)}
     </div>
