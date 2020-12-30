@@ -22,7 +22,7 @@ export async function getStaticProps() {
 }
 
 const App = ({ collectionCardDetailsList, aboutUsData }) => (
-  <>
+  <div className='container'>
     <Navbar />
     <Hero />
     <CollectionCardList
@@ -34,7 +34,7 @@ const App = ({ collectionCardDetailsList, aboutUsData }) => (
     <Contact />
     <BackToTop />
     <Footer />
-  </>
+  </div>
 );
 
 export default App;
