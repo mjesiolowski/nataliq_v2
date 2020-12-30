@@ -11,27 +11,27 @@ const Navbar = () => {
         <ul>
           <li>
             <Link href='/'>
-              <a>HOME</a>
+              HOME
             </Link>
           </li>
           <li>
-            <Link href='/#collection'>
-              <a>Kolekcje</a>
+            <Link href='/#collections'>
+              Kolekcje
             </Link>
           </li>
           <li>
             <Link href='/#about'>
-              <a>O nas</a>
+              O nas
             </Link>
           </li>
           <li>
             <Link href='/#contact'>
-              <a>Kontakt</a>
+              Kontakt
             </Link>
           </li>
           <li>
             <Link href={`/${BLOG_HREF}1`}>
-              <a>Blog</a>
+              Blog
             </Link>
           </li>
         </ul>

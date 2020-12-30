@@ -25,10 +25,10 @@ const CollectionCardList = ({ collectionCardDetailsList }) => {
   ));
 
   return (
-    <div id='collection'>
+    <section id='collections'>
       <h1>Nasze kolekcje</h1>
       {renderCollectionCard(collectionCardDetailsList)}
-    </div>
+    </section>
   );
 };
 
