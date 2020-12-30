@@ -1,6 +1,7 @@
 import CollectionCardList from '../components/CollectionCardList/CollectionCardList';
 import About from '../components/About/About';
 import Navbar from '../components/Navbar/Navbar';
+import Contact from '../components/Contact/Contact';
 import { getAllSlugs, getCollectionCardDetails, getAboutUs } from '../lib/collection';
 
 export async function getStaticProps() {
@@ -26,6 +27,7 @@ const App = ({ collectionCardDetailsList, aboutUsData }) => (
     <About
       aboutUsData={aboutUsData}
     />
+    <Contact />
   </>
 );
 

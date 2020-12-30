@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { BLOG_HREF } from '../../constants';
 
-const Navbar = ({ isHomepage }) => {
+const Navbar = () => {
   console.log('Navbar');
 
   return (
