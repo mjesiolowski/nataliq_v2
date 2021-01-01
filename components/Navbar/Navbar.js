@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BLOG_HREF } from '../../constants';
-import styles from './navbar.module.css';
+import styles from './navbar.module.scss';
 
 const Navbar = () => {
   console.log('Navbar');
@@ -22,7 +22,7 @@ const Navbar = () => {
           </li>
           <li className={styles.navItem}>
             <Link href='/'>
-              <Image src='/logo.png' alt='logo sklepu' width='150' height='64' />
+              <Image className={styles.navLogo} src='/logo.png' alt='logo sklepu' width='150' height='64' />
             </Link>
           </li>
           <li className={styles.navItem}>

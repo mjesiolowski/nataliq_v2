@@ -1,0 +1,46 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.navItems {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.navItem {
+  /* position: relative; */
+  background-color: slategray;
+  flex: 0 1 50%;
+  text-align: center;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.navLink {
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  font-size: 24px;
+  transition: all 0.2s;
+  text-decoration: none;
+  text-transform: lowercase;
+  color: #eee;
+
+  &:hover {
+    background-color: black;
+  }
+}
+
+.navLogo {
+  cursor: pointer;
+}
