@@ -1,5 +1,5 @@
 .navbar {
-  position: fixed;
+  // position: fixed;
   top: 0;
   left: 0;
   padding: 0;
@@ -15,7 +15,6 @@
 }
 
 .navItem {
-  /* position: relative; */
   background-color: slategray;
   flex: 0 1 50%;
   text-align: center;
@@ -31,16 +30,80 @@
   width: 100%;
   padding: 20px 0;
   font-size: 24px;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
   text-decoration: none;
   text-transform: lowercase;
   color: #eee;
 
   &:hover {
-    background-color: black;
+    background-color: #F4C63C;
+    border-radius: 10px/30px;
+    color: black;
   }
 }
 
 .navLogo {
   cursor: pointer;
+}
+
+@mixin hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+}
+
+.hamburger {
+  padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid black;
+  margin: 0;
+  transition: transform 0.3s 0.1s ease-in-out;
+}
+
+.hamburgerBox {
+  width: 35px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburgerInner {
+  @include hamburger-line;
+
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.1s 0.2s ease-in-out;
+}
+
+.hamburgerInner::before,
+.hamburgerInner::after {
+  @include hamburger-line;
+
+  content: '';
+  left: 0;
+  transition: transform 0.2s 0.2s ease-in-out;
+}
+
+.hamburgerInner::before {
+  top: -10px;
+}
+
+.hamburgerInner::after {
+  top: 10px;
+}
+
+.hamburgerActive .hamburgerInner {
+  background-color: transparent;
+}
+
+.hamburgerActive .hamburgerInner::before {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburgerActive .hamburgerInner::after {
+  transform: translateY(-10px) rotate(-45deg);
 }
