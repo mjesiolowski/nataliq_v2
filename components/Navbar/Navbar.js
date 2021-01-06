@@ -62,7 +62,7 @@ const Navbar = () => {
           </li>
           <li className={`${styles.navItem} ${styles.navItemLogo}`}>
             <Link href='/'>
-              <Image className={styles.navLogo} src='/logo.png' alt='logo sklepu' width='150' height='64' />
+              <Image className={styles.navLogoImage} src='/logo.png' alt='logo sklepu' width='150' height='64' />
             </Link>
           </li>
           <li className={styles.navItem}>
