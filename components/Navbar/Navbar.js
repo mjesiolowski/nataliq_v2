@@ -60,9 +60,14 @@ const Navbar = () => {
               <a className={styles.navLink}>Blog</a>
             </Link>
           </li>
-          <li className={`${styles.navItem} ${styles.navItemLogo}`}>
+          {/* <li className={`${styles.navItem} ${styles.navItemLogo}`}>
             <Link href='/'>
               <Image className={styles.navLogoImage} src='/logo.png' alt='logo sklepu' width='150' height='64' />
+            </Link>
+          </li> */}
+          <li className={styles.navItem}>
+            <Link href='/' className={styles.navLink}>
+              <a className={styles.navLink}>Home</a>
             </Link>
           </li>
           <li className={styles.navItem}>

@@ -1,53 +1,5 @@
 @import '../../styles//variables.scss';
 
-// .navbar {
-//   // position: fixed;
-//   top: 0;
-//   left: 0;
-//   padding: 0;
-//   margin: 0;
-//   width: 100%;
-// }
-
-// .navItems {
-//   margin: 0;
-//   padding: 0;
-//   list-style: none;
-//   display: flex;
-// }
-
-// .navItem {
-//   background-color: slategray;
-//   flex: 0 1 50%;
-//   text-align: center;
-//   min-height: 70px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 5px;
-// }
-
-// .navLink {
-//   display: block;
-//   width: 100%;
-//   padding: 20px 0;
-//   font-size: 24px;
-//   transition: all 0.2s ease-in-out;
-//   text-decoration: none;
-//   text-transform: lowercase;
-//   color: #eee;
-
-//   &:hover {
-//     background-color: #F4C63C;
-//     border-radius: 10px/30px;
-//     color: black;
-//   }
-// }
-
-// .navLogo {
-//   cursor: pointer;
-// }
-
 @mixin hamburger-line {
   width: 100%;
   height: 3px;
@@ -121,7 +73,7 @@
   min-width: 320px;
   width: 100%;
   height: 100vh;
-  background-color: slategray;
+  background-color: #F4C63C;
   transform: translateY(-100%);
   transition: transform 0.3s 0.1s ease-in-out;
 }
@@ -146,7 +98,7 @@
   // align-items: center;
   // justify-content: center;
   margin: 5px 0;
-  background-color: darkgray;
+  background-color: #86D2A1;
   // border-bottom: 2px solid white;
 }
 
@@ -158,7 +110,7 @@
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   text-transform: lowercase;
-  color: #eee;
+  color: white;
 }
 
 .navItemLogo {
@@ -181,7 +133,7 @@
   .navbar {
     transform: translateY(0%);
     height: auto;
-    background-color: darkgray;
+    background-color: #86D2A1;
   }
 
   .navItems {
@@ -206,7 +158,7 @@
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      background-color: #F4C63C;
+      background-color: white;
       border-radius: 10px/30px;
       color: black;
     }
