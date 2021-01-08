@@ -1,0 +1,20 @@
+@import '../../styles//variables.scss';
+
+.hero {
+  // margin-top: 100px;
+
+
+
+}
+
+.heroWrapper {
+  background-color: $transparentBlack;
+  min-height: 100vh;
+}
+
+.heroTitle {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 32px;
+}
