@@ -75,7 +75,7 @@
   min-width: 320px;
   width: 100%;
   height: 100vh;
-  background-color: #F4C63C;
+  background-color: white;
   transform: translateY(-100%);
   transition: transform 0.3s 0.1s ease-in-out;
   z-index: 1;
@@ -101,7 +101,7 @@
   // align-items: center;
   // justify-content: center;
   margin: 5px 0;
-  background-color: #86D2A1;
+  background-color: white;
   // border-bottom: 2px solid white;
 }
 
@@ -113,7 +113,7 @@
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   text-transform: lowercase;
-  color: white;
+  color: black;
 }
 
 .navItemLogo {
@@ -136,7 +136,7 @@
   .navbar {
     transform: translateY(0%);
     height: auto;
-    background-color: #86D2A1;
+    background-color: white;
   }
 
   .navItems {
@@ -161,7 +161,7 @@
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      background-color: white;
+      background-color: $main-color;
       border-radius: 10px/30px;
       color: black;
     }

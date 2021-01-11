@@ -8,11 +8,13 @@ const Hero = () => {
   return (
     <section id='hero' className={styles.hero}>
       <div className={styles.heroWrapper}>
-        <img className={styles.logo} src='/logo.png' alt='logo sklepu' width='300px' />
+        <div className={styles.heroLogoWrapper}>
+          <img className={styles.heroLogo} src='/logo.png' alt='logo sklepu' width='300px' />
+        </div>
         {/* <h1 className={styles.heroTitle}>Salon sukien ślubnych i wizytowych NataliQ</h1> */}
         <p>
           <Link href='/#collections'>
-            Poznaj nasze kolekcje
+            <a className={styles.heroLink}>nasze kolekcje</a>
           </Link>
         </p>
       </div>
