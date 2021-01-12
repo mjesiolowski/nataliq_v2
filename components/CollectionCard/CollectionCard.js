@@ -6,6 +6,7 @@ import {
   COLLECTION_CARD_LINK_TEXT,
 } from '../../constants';
 import Image from '../Image/Image';
+import styles from './collectionCard.module.scss';
 
 const CollectionCard = ({
   isMultipleCollection: isMultiple,
@@ -21,16 +22,18 @@ const CollectionCard = ({
   const collectionLink = `/${isMultipleCollection ? COLLECTIONS_HREF : COLLECTION_HREF}${slug}`;
 
   return (
-    <div>
-      <h2>{collectionTitle}</h2>
+    <div className={styles.collectionCard}>
+      <h2 className={styles.collectionTitle}>{collectionTitle}</h2>
 
-      <Image
-        alt={alt}
-        title={title}
-        desktopImage={desktopImage}
-        tabletImage={tabletImage}
-        mobileImage={mobileImage}
-      />
+      <div className={styles.collectionImage}>
+        <Image
+          alt={alt}
+          title={title}
+          desktopImage={desktopImage}
+          tabletImage={tabletImage}
+          mobileImage={mobileImage}
+        />
+      </div>
 
       <Link href={collectionLink}>
         <a>{COLLECTION_CARD_LINK_TEXT}</a>

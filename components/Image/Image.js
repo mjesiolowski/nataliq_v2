@@ -18,9 +18,9 @@ const Image = ({
   const imgAlt = alt || COLLECTION_DEFAULT_ALT_TEXT;
 
   return (
-    <div>
+    <>
 
-      <h2>{title}</h2>
+      {/* <h2>{title}</h2> */}
 
       <picture>
         <source
@@ -37,7 +37,7 @@ const Image = ({
           className={styles.image}
         />
       </picture>
-    </div>
+    </>
   );
 };
 export default Image;

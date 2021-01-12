@@ -1,4 +1,5 @@
 import CollectionCard from '../CollectionCard/CollectionCard';
+import styles from './collectionCardList.module.scss';
 
 const CollectionCardList = ({ collectionCardDetailsList }) => {
   const renderCollectionCard = (collectionCardList) => collectionCardList?.map((({
@@ -25,9 +26,11 @@ const CollectionCardList = ({ collectionCardDetailsList }) => {
   ));
 
   return (
-    <section id='collections'>
+    <section id='collections' className={styles.collections}>
       <h1>Nasze kolekcje</h1>
-      {renderCollectionCard(collectionCardDetailsList)}
+      <div className={styles.collectionCardsWrapper}>
+        {renderCollectionCard(collectionCardDetailsList)}
+      </div>
     </section>
   );
 };
