@@ -8,5 +8,12 @@
 .collectionCardsWrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
+.collectionCardsTitle {
+  color: white;
+  background-color: $transparent-black;
+  text-align: center;
+  padding: 15px;
+}

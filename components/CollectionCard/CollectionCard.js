@@ -36,7 +36,7 @@ const CollectionCard = ({
       </div>
 
       <Link href={collectionLink}>
-        <a>{COLLECTION_CARD_LINK_TEXT}</a>
+        <a className={styles.collectionLink}>{COLLECTION_CARD_LINK_TEXT}</a>
       </Link>
 
     </div>

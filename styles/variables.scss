@@ -3,3 +3,23 @@ $breakpoint-desktop: 1024px;
 $transparent-black: rgba(20, 20, 20, 0.9);
 
 $main-color: #f4c63c;
+
+@mixin buttonLink($padding, $font-size) {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 10px/30px;
+  background-color: white;
+  color: black;
+  padding: $padding;
+  font-size: $font-size;
+}
+
+@mixin hover {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $main-color;
+    border-radius: 10px/30px;
+    color: black;
+  }
+}

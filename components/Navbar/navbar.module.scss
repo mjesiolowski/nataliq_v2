@@ -158,12 +158,6 @@
   }
 
   .navLink {
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      background-color: $main-color;
-      border-radius: 10px/30px;
-      color: black;
-    }
+    @include hover();
   }
 }

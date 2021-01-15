@@ -8,13 +8,16 @@
   flex-wrap: wrap;
   min-width: 280px;
   min-height: 350px;
+  max-width: 300px;
   border: 2px solid white;
+  // text-align: center;
   // border-radius: 10px/30px;
 
 }
 
 .collectionTitle {
   color: white;
+  margin: 5px auto;
 }
 
 .collectionImage {
@@ -26,4 +29,16 @@
   //   height: 100%;
   //   object-fit: contain;
   // }
+}
+
+.collectionLink {
+  @include buttonLink($padding: 10px, $font-size: 20px);
+
+  margin: 10px auto;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .collectionLink {
+    @include hover();
+  }
 }

@@ -27,7 +27,7 @@ const CollectionCardList = ({ collectionCardDetailsList }) => {
 
   return (
     <section id='collections' className={styles.collections}>
-      <h1>Nasze kolekcje</h1>
+      <h1 className={styles.collectionCardsTitle}>Nasze kolekcje</h1>
       <div className={styles.collectionCardsWrapper}>
         {renderCollectionCard(collectionCardDetailsList)}
       </div>
