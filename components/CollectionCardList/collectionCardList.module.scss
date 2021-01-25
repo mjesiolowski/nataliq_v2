@@ -2,7 +2,7 @@
 
 .collections {
   // background-color: $transparent-black;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .collectionCardsWrapper {
@@ -12,8 +12,5 @@
 }
 
 .collectionCardsTitle {
-  color: white;
-  background-color: $transparent-black;
-  text-align: center;
-  padding: 15px;
+  @include sectionTitle;
 }

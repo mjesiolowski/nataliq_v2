@@ -4,6 +4,11 @@ $transparent-black: rgba(20, 20, 20, 0.9);
 
 $main-color: #f4c63c;
 
+$font-size1: 24px;
+$font-size2: 20px;
+$font-size3: 18px;
+$font-size4: 16px;
+
 @mixin buttonLink($padding, $font-size) {
   display: inline-block;
   text-decoration: none;
@@ -23,3 +28,12 @@ $main-color: #f4c63c;
     color: black;
   }
 }
+
+@mixin sectionTitle {
+  color: white;
+  background-color: $transparent-black;
+  text-align: center;
+  padding: 15px;
+}
+
+//TODO - font-sizes
