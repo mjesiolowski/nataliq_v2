@@ -7,7 +7,7 @@ const About = ({ aboutUsData }) => {
 
   return (
     <section id='about' className={styles.about}>
-      <h2 className={styles.aboutTitle}>O nas</h2>
+      <h2 className={styles.aboutTitle}>{ABOUT_US}</h2>
       <div className={styles.aboutWrapper}>
         <ReactMarkdown source={aboutUsData} />
       </div>

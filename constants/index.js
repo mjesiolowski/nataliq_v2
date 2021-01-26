@@ -12,3 +12,4 @@ export const BLOG_HREF = 'blog/';
 export const BLOG_POSTS_LIMIT = 5;
 
 export const ABOUT_US = 'O nas';
+export const CONTACT_US = 'Kontakt';
