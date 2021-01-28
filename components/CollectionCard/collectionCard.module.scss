@@ -18,6 +18,7 @@
 .collectionTitle {
   color: white;
   margin: 5px auto;
+  font-size: $font-size-regular;
 }
 
 .collectionImage {
@@ -40,5 +41,9 @@
 @media (min-width: $breakpoint-tablet) {
   .collectionLink {
     @include hover();
+  }
+
+  .collectionTitle {
+    font-size: $font-size-large;
   }
 }

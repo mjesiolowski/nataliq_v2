@@ -34,6 +34,9 @@ $font-size-medium: 20px;
   background-color: $transparent-black;
   text-align: center;
   padding: 15px;
-}
+  font-size: $font-size-large;
 
-//TODO - font-sizes
+  @media (min-width: $breakpoint-tablet) {
+    font-size: $font-size-extra-large;
+  }
+}

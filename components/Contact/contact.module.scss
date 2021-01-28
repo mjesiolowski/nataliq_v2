@@ -16,5 +16,9 @@
   border: 2px solid white;
   padding: 15px;
   max-width: 480px;
-  margin: 15px;
+  margin: 15px auto;
+}
+
+.contactAddress {
+  font-size: $font-size-medium;
 }

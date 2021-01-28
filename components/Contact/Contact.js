@@ -17,13 +17,11 @@ const Contact = () => {
         // style='border:0'
           allowFullScreen
         />
-        <div>
-          <address>
-            <p>ul. 3 Maja 15</p>
-            <p>62-700 Turek</p>
-            <p>Telefon: 693-410-920</p>
-          </address>
-        </div>
+        <address className={styles.contactAddress}>
+          <p>ul. 3 Maja 15</p>
+          <p>62-700 Turek</p>
+          <p>Telefon: 693-410-920</p>
+        </address>
       </div>
 
     </section>

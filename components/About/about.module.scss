@@ -7,7 +7,11 @@
   text-align: center;
 
   & h3 {
-    font-size: $font-size-regular;
+    font-size: $font-size-large;
+  }
+
+  & p {
+    font-size: $font-size-medium;
   }
 }
 
