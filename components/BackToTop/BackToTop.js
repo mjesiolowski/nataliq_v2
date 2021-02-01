@@ -1,12 +1,21 @@
 import Link from 'next/link';
+import styles from './backToTop.module.scss';
 
 const BackToTop = () => {
   console.log('BackToTop');
 
   return (
-    <Link href='/#hero'>
-      Powrót na górę strony
-    </Link>
+    <section className={styles.backToTopWrapper}>
+      <Link href='/#hero'>
+        <a className={styles.buttonLink}>
+          <span>
+            &#8593;
+            <br />
+            Powrót
+          </span>
+        </a>
+      </Link>
+    </section>
   );
 };
 
