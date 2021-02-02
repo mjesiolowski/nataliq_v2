@@ -3,7 +3,7 @@ import About from '../components/About/About';
 import Navbar from '../components/Navbar/Navbar';
 import Contact from '../components/Contact/Contact';
 import Footer from '../components/Footer/Footer';
-import BackToTop from '../components/BackToTop/BackToTop';
+import LinkButton from '../components/LinkButton/LinkButton';
 import Hero from '../components/Hero/Hero';
 import { getAllSlugs, getCollectionCardDetails, getAboutUs } from '../lib/collection';
 
@@ -32,7 +32,11 @@ const App = ({ collectionCardDetailsList, aboutUsData }) => (
       aboutUsData={aboutUsData}
     />
     <Contact />
-    <BackToTop />
+    <LinkButton
+      href='/#hero'
+      content='Powrót'
+      className='backToTopButtonLink'
+    />
     <Footer />
   </div>
 );

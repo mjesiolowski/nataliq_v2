@@ -35,3 +35,11 @@ body::before {
   max-width: 1920px;
   margin: 0 auto;
 }
+
+.multipleCollectionWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}

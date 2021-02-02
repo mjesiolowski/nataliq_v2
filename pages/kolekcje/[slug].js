@@ -3,7 +3,6 @@ import {
   getSubcollectionsSlugs,
   getCollectionCardDetails,
 } from '../../lib/collection';
-
 import CollectionCard from '../../components/CollectionCard/CollectionCard';
 
 export async function getStaticPaths() {
@@ -29,8 +28,6 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      slug,
-      subcollectionsSlugs,
       collectionCardDetailsList,
     },
   };
@@ -54,9 +51,8 @@ export default function Collections({
     />
   )));
   return (
-    <>
-      <div>Kolekcje</div>
+    <section className='multipleCollectionWrapper'>
       {renderSubcollectionCard(collectionCardDetailsList)}
-    </>
+    </section>
   );
 }
