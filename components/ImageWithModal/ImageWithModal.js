@@ -55,9 +55,11 @@ const ImageWithModal = ({
           <Image
             alt={alt}
             title={title}
-            desktopImage={desktopImage}
-            tabletImage={tabletImage}
-            mobileImage={mobileImage}
+            // desktopImage={desktopImage}
+            // tabletImage={tabletImage}
+            // mobileImage={mobileImage}
+            image={desktopImage}
+            className='imageWithModal'
           />
         </button>
       </div>

@@ -12,10 +12,12 @@ const Image = ({
   desktopImage,
   tabletImage,
   mobileImage,
+  image,
+  className,
 }) => {
-  const desktopImg = desktopImage?.url;
-  const tabletImg = tabletImage?.url;
-  const mobileImg = mobileImage?.url;
+  const imageUrl = image?.url;
+  // const tabletImg = tabletImage?.url;
+  // const mobileImg = mobileImage?.url;
   const imgAlt = alt || COLLECTION_DEFAULT_ALT_TEXT;
 
   return (
@@ -40,16 +42,9 @@ const Image = ({
   //   </picture>
   // </>
 
-    <div style={{
-      position: 'relative',
-      width: '100%',
-      height: '400px',
-      // maxHeight: 'auto',
-      // display: 'block',
-    }}
-    >
+    <div className={`${styles.image} ${styles[className]}`}>
       <NextImage
-        src={desktopImg}
+        src={imageUrl}
         alt={imgAlt}
         // className={styles.image}
         layout='fill'
