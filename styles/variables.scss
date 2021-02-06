@@ -1,6 +1,7 @@
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $transparent-black: rgba(20, 20, 20, 0.9);
+$transparent-black-light: rgba(20, 20, 20, 0.6);
 
 $main-color: #f4c63c;
 
@@ -30,11 +31,13 @@ $font-size-medium: 20px;
 }
 
 @mixin sectionTitle {
-  color: white;
-  background-color: $transparent-black;
+  // color: white;
+  background-color: white;
   text-align: center;
   padding: 15px;
+  margin: 15px auto;
   font-size: $font-size-large;
+  max-width: 768px;
 
   @media (min-width: $breakpoint-tablet) {
     font-size: $font-size-extra-large;

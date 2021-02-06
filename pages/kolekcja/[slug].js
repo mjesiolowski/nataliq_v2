@@ -62,14 +62,16 @@ export default function Collection({
 
   return (
     <>
-      {/* <Modal images={images} index={0} /> */}
-      <div>
+      <div className='collectionTitle'>
         Kolekcja
         {' '}
         {slug}
       </div>
-      {renderCollectionImages(images)}
-      {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
+      <section className='collectionPhotosWrapper'>
+        {/* <Modal images={images} index={0} /> */}
+        {renderCollectionImages(images)}
+        {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
+      </section>
     </>
   );
 }

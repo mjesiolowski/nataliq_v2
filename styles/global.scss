@@ -24,6 +24,18 @@ body::before {
   background-size: cover;
 }
 
+body::after {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-color: $transparent-black-light;
+}
+
 @media (min-width: $breakpoint-tablet) {
   body::before {
     background: url("../public/bg.jpg") no-repeat center;
@@ -42,4 +54,16 @@ body::before {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+
+.collectionPhotosWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  // min-height: 100vh;
+}
+
+.collectionTitle {
+  @include sectionTitle;
 }

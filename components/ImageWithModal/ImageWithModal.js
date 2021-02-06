@@ -51,6 +51,7 @@ const ImageWithModal = ({
         <button
           type='button'
           onClick={() => onImageClick(index)}
+          className={styles.imageButton}
         >
           <Image
             alt={alt}

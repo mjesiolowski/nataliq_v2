@@ -3,7 +3,6 @@
 .about {
   min-height: 80vh;
   min-width: 300px;
-  color: white;
   text-align: center;
 
   & h3 {
@@ -16,8 +15,8 @@
 }
 
 .aboutWrapper {
-  background-color: $transparent-black;
-  border: 2px solid white;
+  background-color: white;
+  border: 2px solid black;
   padding: 15px;
   max-width: 768px;
   margin: 15px;

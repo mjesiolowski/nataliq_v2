@@ -6,3 +6,9 @@
   left: 0;
   background-color: burlywood;
 }
+
+.imageButton {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
