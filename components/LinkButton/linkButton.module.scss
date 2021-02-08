@@ -1,18 +1,19 @@
 @import '../../styles//variables.scss';
 
 .backToTopWrapper {
-  text-align: right;
+  text-align: center;
   margin: 15px auto;
   padding: 15px;
 }
 
-.backToTopButtonLink {
-  @include buttonLink($padding: 5px 50px, $font-size: 24px);
+.backLink {
+  @include buttonLink($padding: 15px 50px, $font-size: 24px);
 
   border: 2px solid black;
-  text-align: center;
-  margin-right: auto;
-  width: 100%;
+  // text-align: center;
+  // margin: 0 auto;
+  // margin-right: auto;
+  // width: 100%;
 }
 
 @media (min-width: $breakpoint-tablet) {
@@ -22,3 +23,9 @@
     width: auto;
   }
 }
+
+// .backToPageBefore {
+//   @include buttonLink($padding: 5px 50px, $font-size: 24px);
+
+//   margin: 0 auto;
+// }

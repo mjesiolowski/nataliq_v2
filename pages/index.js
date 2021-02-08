@@ -35,7 +35,7 @@ const App = ({ collectionCardDetailsList, aboutUsData }) => (
     <LinkButton
       href='/#hero'
       content='Powrót'
-      className='backToTopButtonLink'
+      className='backLink'
     />
     <Footer />
   </div>

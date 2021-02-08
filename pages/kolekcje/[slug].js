@@ -4,6 +4,7 @@ import {
   getCollectionCardDetails,
 } from '../../lib/collection';
 import CollectionCard from '../../components/CollectionCard/CollectionCard';
+import LinkButton from '../../components/LinkButton/LinkButton';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs({ isMultipleCollection: true });
@@ -51,8 +52,15 @@ export default function Collections({
     />
   )));
   return (
-    <section className='multipleCollectionWrapper'>
-      {renderSubcollectionCard(collectionCardDetailsList)}
+    <section>
+      <div className='multipleCollectionWrapper'>
+        {renderSubcollectionCard(collectionCardDetailsList)}
+      </div>
+      <LinkButton
+        href='/#collections'
+        content='Powrót'
+        className='backLink'
+      />
     </section>
   );
 }

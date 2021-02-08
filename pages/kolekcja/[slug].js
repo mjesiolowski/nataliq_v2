@@ -2,8 +2,10 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   getAllSlugs,
   getCollectionImages,
+  getCollectionTitle,
 } from '../../lib/collection';
 import ImageWithModal from '../../components/ImageWithModal/ImageWithModal';
+import LinkButton from '../../components/LinkButton/LinkButton';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -23,11 +25,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const images = await getCollectionImages(slug);
+  const collectionTitle = await getCollectionTitle(slug);
 
   return {
     props: {
       slug,
       images,
+      collectionTitle,
     },
   };
 }
@@ -35,6 +39,7 @@ export async function getStaticProps({ params }) {
 export default function Collection({
   slug,
   images,
+  collectionTitle,
 }) {
   const renderCollectionImages = (imagesData) => imagesData.map(
     (imageData, index) => {
@@ -65,12 +70,20 @@ export default function Collection({
       <div className='collectionTitle'>
         Kolekcja
         {' '}
-        {slug}
+        {collectionTitle}
       </div>
-      <section className='collectionPhotosWrapper'>
+      <section>
+        <div className='collectionPhotosWrapper'>
+          {renderCollectionImages(images)}
+        </div>
         {/* <Modal images={images} index={0} /> */}
-        {renderCollectionImages(images)}
+
         {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
+        <LinkButton
+          href='/#collections'
+          content='Powrót'
+          className='backLink'
+        />
       </section>
     </>
   );
