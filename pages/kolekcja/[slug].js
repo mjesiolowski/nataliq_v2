@@ -6,6 +6,8 @@ import {
 } from '../../lib/collection';
 import ImageWithModal from '../../components/ImageWithModal/ImageWithModal';
 import LinkButton from '../../components/LinkButton/LinkButton';
+import { COLLECTION } from '../../constants';
+import Footer from '../../components/Footer/Footer';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -68,23 +70,24 @@ export default function Collection({
   return (
     <>
       <div className='collectionTitle'>
-        Kolekcja
+        {COLLECTION}
         {' '}
         {collectionTitle}
       </div>
-      <section>
+      <section className='collectionSection'>
+        <LinkButton
+          href='/#collections'
+          content='Powrót'
+          className='backLink'
+        />
         <div className='collectionPhotosWrapper'>
           {renderCollectionImages(images)}
         </div>
         {/* <Modal images={images} index={0} /> */}
 
         {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
-        <LinkButton
-          href='/#collections'
-          content='Powrót'
-          className='backLink'
-        />
       </section>
+      <Footer />
     </>
   );
 }

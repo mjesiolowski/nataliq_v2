@@ -39,9 +39,10 @@ const ImageWithModal = ({
     <Image
       alt={imagesList[imageIndex].alt}
         // title={imagesList[imageIndex].title}
-      desktopImage={imagesList[imageIndex].desktopImage}
-      tabletImage={imagesList[imageIndex].tabletImage}
-      mobileImage={imagesList[imageIndex].mobileImage}
+      image={imagesList[imageIndex].desktopImage}
+      // desktopImage={imagesList[imageIndex].desktopImage}
+      // tabletImage={imagesList[imageIndex].tabletImage}
+      // mobileImage={imagesList[imageIndex].mobileImage}
     />
   );
 

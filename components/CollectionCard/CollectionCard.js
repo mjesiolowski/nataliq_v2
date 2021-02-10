@@ -7,6 +7,7 @@ import {
 } from '../../constants';
 import Image from '../Image/Image';
 import styles from './collectionCard.module.scss';
+import LinkButton from '../LinkButton/LinkButton';
 
 const CollectionCard = ({
   isMultipleCollection: isMultiple,
@@ -37,10 +38,11 @@ const CollectionCard = ({
         />
       </div>
 
-      <Link href={collectionLink}>
-        <a className={styles.collectionLink}>{COLLECTION_CARD_LINK_TEXT}</a>
-      </Link>
-
+      <LinkButton
+        href={collectionLink}
+        content={COLLECTION_CARD_LINK_TEXT}
+        className='showCollection'
+      />
     </div>
   );
 };

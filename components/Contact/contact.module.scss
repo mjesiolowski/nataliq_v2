@@ -13,10 +13,12 @@
 
 .contactWrapper {
   background-color: $transparent-black;
-  border: 2px solid white;
   padding: 15px;
   max-width: 480px;
   margin: 15px auto;
+  color: white;
+
+  @include cardBorder;
 }
 
 .contactAddress {

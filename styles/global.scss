@@ -56,14 +56,24 @@ body::after {
   // min-height: 100vh;
 }
 
-.collectionPhotosWrapper {
+.collectionTitle {
+  @include sectionTitle;
+}
+
+.multipleCollectionSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.multipleCollectionContent {
+  flex-grow: 1;
+}
+
+.multipleCollectionCards {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  // min-height: 100vh;
-}
-
-.collectionTitle {
-  @include sectionTitle;
+  // margin-bottom: 30px;
 }

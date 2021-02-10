@@ -9,10 +9,8 @@
   min-width: 280px;
   min-height: 350px;
   max-width: 300px;
-  border: 2px solid white;
-  // text-align: center;
-  // border-radius: 10px/30px;
 
+  @include cardBorder;
 }
 
 .collectionTitle {
