@@ -68,13 +68,13 @@ export default function Collection({
   );
 
   return (
-    <>
+    <section className='collectionSection'>
       <div className='collectionTitle'>
         {COLLECTION}
         {' '}
         {collectionTitle}
       </div>
-      <section className='collectionSection'>
+      <main className='collectionContent'>
         <LinkButton
           href='/#collections'
           content='Powrót'
@@ -86,8 +86,8 @@ export default function Collection({
         {/* <Modal images={images} index={0} /> */}
 
         {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
-      </section>
+      </main>
       <Footer />
-    </>
+    </section>
   );
 }

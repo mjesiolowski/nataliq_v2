@@ -60,17 +60,20 @@ body::after {
   @include sectionTitle;
 }
 
-.multipleCollectionSection {
+.multipleCollectionSection,
+.collectionSection {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.multipleCollectionContent {
+.multipleCollectionContent,
+.collectionContent {
   flex-grow: 1;
 }
 
-.multipleCollectionCards {
+.multipleCollectionCards,
+.collectionPhotosWrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
