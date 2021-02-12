@@ -1,5 +1,5 @@
 import NextImage from 'next/image';
-import styles from './image.module.css';
+import styles from './image.module.scss';
 import {
   MOBILE_BREAKPOINT,
   DESKTOP_BREAKPOINT,
@@ -19,7 +19,7 @@ const Image = ({
   // const tabletImg = tabletImage?.url;
   // const mobileImg = mobileImage?.url;
   const imgAlt = alt || COLLECTION_DEFAULT_ALT_TEXT;
-
+  console.log({ title });
   return (
   // <>
 
@@ -51,6 +51,7 @@ const Image = ({
         objectFit='cover'
         objectPosition='top'
       />
+      {title && <h2 className={styles.imageTitle}>{title}</h2>}
     </div>
 
   );

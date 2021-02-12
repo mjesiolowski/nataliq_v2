@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './imageWithModal.module.css';
+import styles from './imageWithModal.module.scss';
 import Image from '../Image/Image';
 
 const ImageWithModal = ({
@@ -11,6 +11,7 @@ const ImageWithModal = ({
   index,
   images,
 }) => {
+  console.log({ alt, title });
   const [modalIndex, setModalIndex] = useState(0);
   const [isModalActive, setModalToActive] = useState(false);
 
@@ -43,6 +44,8 @@ const ImageWithModal = ({
       // desktopImage={imagesList[imageIndex].desktopImage}
       // tabletImage={imagesList[imageIndex].tabletImage}
       // mobileImage={imagesList[imageIndex].mobileImage}
+      title={title}
+      className='imageWithModal'
     />
   );
 
@@ -56,13 +59,13 @@ const ImageWithModal = ({
         >
           <Image
             alt={alt}
-            title={title}
             // desktopImage={desktopImage}
             // tabletImage={tabletImage}
             // mobileImage={mobileImage}
             image={desktopImage}
             className='imageWithModal'
           />
+          {title && <h2 className={styles.imageTitle}>{title}</h2>}
         </button>
       </div>
 

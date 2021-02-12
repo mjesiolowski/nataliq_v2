@@ -53,3 +53,15 @@ $font-size-medium: 20px;
   border: 4px solid $main-color;
   border-radius: 20px;
 }
+
+@mixin imageTitle {
+  color: $main-color;
+  background-color: $transparent-black;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+}

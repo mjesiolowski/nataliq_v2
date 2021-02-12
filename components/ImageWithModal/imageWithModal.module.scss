@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .modal {
   width: 100vw;
   height: 100vh;
@@ -5,10 +7,18 @@
   top: 0;
   left: 0;
   background-color: burlywood;
+  z-index: 1;
 }
 
 .imageButton {
   cursor: pointer;
   background-color: transparent;
   border: none;
+  position: relative;
+  padding: 0;
+  margin: 5px;
+}
+
+.imageTitle {
+  @include imageTitle;
 }
