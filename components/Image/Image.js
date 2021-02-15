@@ -19,7 +19,7 @@ const Image = ({
   // const tabletImg = tabletImage?.url;
   // const mobileImg = mobileImage?.url;
   const imgAlt = alt || COLLECTION_DEFAULT_ALT_TEXT;
-  console.log({ title });
+
   return (
   // <>
 

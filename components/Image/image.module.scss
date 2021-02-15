@@ -14,6 +14,15 @@
   height: 500px;
 }
 
+.modalImage {
+  width: 300px;
+  height: 500px;
+
+  @include cardBorder;
+
+  border-radius: 0;
+}
+
 .imageTitle {
   @include imageTitle;
 }

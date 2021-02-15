@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faArrowLeft, faArrowRight, faCoffee, faTimes, faTimesCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import styles from './imageWithModal.module.scss';
 import Image from '../Image/Image';
 
@@ -11,7 +15,6 @@ const ImageWithModal = ({
   index,
   images,
 }) => {
-  console.log({ alt, title });
   const [modalIndex, setModalIndex] = useState(0);
   const [isModalActive, setModalToActive] = useState(false);
 
@@ -39,13 +42,9 @@ const ImageWithModal = ({
   const renderModalImage = (imagesList, imageIndex) => (
     <Image
       alt={imagesList[imageIndex].alt}
-        // title={imagesList[imageIndex].title}
       image={imagesList[imageIndex].desktopImage}
-      // desktopImage={imagesList[imageIndex].desktopImage}
-      // tabletImage={imagesList[imageIndex].tabletImage}
-      // mobileImage={imagesList[imageIndex].mobileImage}
-      title={title}
-      className='imageWithModal'
+      title={imagesList[imageIndex].title}
+      className='modalImage'
     />
   );
 
@@ -71,29 +70,35 @@ const ImageWithModal = ({
 
       {isModalActive && (
       <div className={styles.modal}>
-        <p>MODAL</p>
-        <button
-          type='button'
-          onClick={() => onCloseModalClick()}
-        >
-          X
-        </button>
-
-        <button
-          type='button'
-          onClick={() => onPreviousArrowClick(images, modalIndex)}
-        >
-          C--
-        </button>
-
-        <button
-          type='button'
-          onClick={() => onNextArrowClick(images, modalIndex)}
-        >
-          --D
-        </button>
-
+        {/* <p>MODAL</p> */}
         {renderModalImage(images, modalIndex)}
+        <nav className={styles.modalNavigation}>
+          <button
+            type='button'
+            className={`${styles.modalNavButton} ${styles.modalNavCloseButton}`}
+            onClick={() => onCloseModalClick()}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <div>
+            <button
+              type='button'
+              className={styles.modalNavButton}
+              onClick={() => onPreviousArrowClick(images, modalIndex)}
+            >
+              <FontAwesomeIcon icon={faArrowLeft} />
+            </button>
+
+            <button
+              type='button'
+              className={styles.modalNavButton}
+              onClick={() => onNextArrowClick(images, modalIndex)}
+            >
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+          </div>
+
+        </nav>
       </div>
       )}
     </>
