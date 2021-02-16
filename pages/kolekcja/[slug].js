@@ -6,7 +6,7 @@ import {
 } from '../../lib/collection';
 import ImageWithModal from '../../components/ImageWithModal/ImageWithModal';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import { COLLECTION } from '../../constants';
+import { COLLECTION, COLLECTION_NO_IMAGES } from '../../constants';
 import Footer from '../../components/Footer/Footer';
 
 export async function getStaticPaths() {
@@ -43,6 +43,7 @@ export default function Collection({
   images,
   collectionTitle,
 }) {
+  const shouldShowImages = Boolean(images.length);
   const renderCollectionImages = (imagesData) => imagesData.map(
     (imageData, index) => {
       const {
@@ -80,9 +81,12 @@ export default function Collection({
           content='Powrót'
           className='backLink'
         />
-        <div className='collectionPhotosWrapper'>
-          {renderCollectionImages(images)}
-        </div>
+        {shouldShowImages ? (
+          <div className='collectionPhotosWrapper'>
+            {renderCollectionImages(images)}
+          </div>
+        ) : <p className='collectionNoImages'>{COLLECTION_NO_IMAGES}</p>}
+
         {/* <Modal images={images} index={0} /> */}
 
         {/* {isModalActive && <div>MODAL ACTIVE</div>} */}

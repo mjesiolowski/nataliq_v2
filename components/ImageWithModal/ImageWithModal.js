@@ -80,7 +80,7 @@ const ImageWithModal = ({
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
-          <div>
+          <div className={styles.modalNavArrowButtonWrapper}>
             <button
               type='button'
               className={styles.modalNavButton}
@@ -97,7 +97,7 @@ const ImageWithModal = ({
               <FontAwesomeIcon icon={faArrowRight} />
             </button>
           </div>
-
+          {/* TODO: change modal on swipe and arrows, remove navButtons on mobile */}
         </nav>
       </div>
       )}
