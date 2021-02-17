@@ -39,13 +39,42 @@ const ImageWithModal = ({
     return setModalIndex(imageIndex - 1);
   };
 
-  const renderModalImage = (imagesList, imageIndex) => (
-    <Image
-      alt={imagesList[imageIndex].alt}
-      image={imagesList[imageIndex].desktopImage}
-      title={imagesList[imageIndex].title}
-      className='modalImage'
-    />
+  const renderModal = (imagesList, imageIndex) => (
+    <div className={styles.modalImageWrapper}>
+      <Image
+        alt={imagesList[imageIndex].alt}
+        image={imagesList[imageIndex].desktopImage}
+        title={imagesList[imageIndex].title}
+        className='modalImage'
+      />
+      <nav className={styles.modalNavigation}>
+        <button
+          type='button'
+          className={`${styles.modalNavButton} ${styles.modalNavCloseButton}`}
+          onClick={() => onCloseModalClick()}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+        <div className={styles.modalNavArrowButtonWrapper}>
+          <button
+            type='button'
+            className={`${styles.modalNavButton} ${styles.modalNavPreviousArrow}`}
+            onClick={() => onPreviousArrowClick(images, modalIndex)}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+
+          <button
+            type='button'
+            className={`${styles.modalNavButton} ${styles.modalNavNextArrow}`}
+            onClick={() => onNextArrowClick(images, modalIndex)}
+          >
+            <FontAwesomeIcon icon={faArrowRight} />
+          </button>
+        </div>
+        {/* TODO: change modal on swipe and arrows, remove navButtons on mobile */}
+      </nav>
+    </div>
   );
 
   return (
@@ -53,8 +82,9 @@ const ImageWithModal = ({
       <div>
         <button
           type='button'
+          // TODO - only on >tablet breakpoint, overlay?
           onClick={() => onImageClick(index)}
-          className={styles.imageButton}
+          className={styles.imageWithModal}
         >
           <Image
             alt={alt}
@@ -71,34 +101,7 @@ const ImageWithModal = ({
       {isModalActive && (
       <div className={styles.modal}>
         {/* <p>MODAL</p> */}
-        {renderModalImage(images, modalIndex)}
-        <nav className={styles.modalNavigation}>
-          <button
-            type='button'
-            className={`${styles.modalNavButton} ${styles.modalNavCloseButton}`}
-            onClick={() => onCloseModalClick()}
-          >
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
-          <div className={styles.modalNavArrowButtonWrapper}>
-            <button
-              type='button'
-              className={styles.modalNavButton}
-              onClick={() => onPreviousArrowClick(images, modalIndex)}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </button>
-
-            <button
-              type='button'
-              className={styles.modalNavButton}
-              onClick={() => onNextArrowClick(images, modalIndex)}
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </button>
-          </div>
-          {/* TODO: change modal on swipe and arrows, remove navButtons on mobile */}
-        </nav>
+        {renderModal(images, modalIndex)}
       </div>
       )}
     </>

@@ -1,64 +1,101 @@
 @import '../../styles/variables.scss';
 
-.modal {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: $transparent-black;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-content: center;
-}
-
-.modalNavigation {
-  flex-basis: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.imageButton {
-  cursor: pointer;
+.imageWithModal {
+  pointer-events: none;
   background-color: transparent;
-  border: none;
   position: relative;
   padding: 0;
   margin: 5px;
+
+  @include cardBorder;
+
+  border-radius: 0;
+
+  @media (min-width: $breakpoint-tablet) {
+    pointer-events: all;
+    cursor: pointer;
+  }
+}
+
+.modal {
+  display: none;
+
+  @media (min-width: $breakpoint-tablet) {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $transparent-black;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+}
+
+.modalImageWrapper {
+  // max-width: 800px;
+  position: relative;
+}
+
+.modalNavigation {
+  @media (min-width: $breakpoint-tablet) {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 }
 
 .modalNavArrowButtonWrapper {
-  flex-basis: 100%;
-  text-align: center;
+  @media (min-width: $breakpoint-tablet) {
+    flex-basis: 100%;
+    text-align: center;
+  }
 }
 
 .modalNavButton {
-  background: white;
-  border: none;
-  padding: 5px 15px;
-  margin: 15px;
-  font-size: $font-size-large;
-  cursor: pointer;
-
   @media (min-width: $breakpoint-tablet) {
     @include hover;
+
+    position: absolute;
+    background: white;
+    border: none;
+    padding: 5px 15px;
+    font-size: $font-size-large;
+    cursor: pointer;
   }
 }
 
 .modalNavCloseButton {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  @media (min-width: $breakpoint-tablet) {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: -5%;
+    right: -10%;
+  }
 
   & svg {
     display: block;
     margin: auto;
   }
+}
+
+.modalNavPreviousArrow {
+  top: 50%;
+  left: -25%;
+  transform: translateY(-50%);
+}
+
+.modalNavNextArrow {
+  top: 50%;
+  right: -25%;
+  transform: translateY(-50%);
 }
 
 .imageTitle {

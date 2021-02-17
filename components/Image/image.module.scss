@@ -11,12 +11,16 @@
 
 .imageWithModal {
   width: 300px;
-  height: 500px;
+  height: 450px;
+
+  @media (min-width: $breakpoint-tablet) {
+    height: 500px;
+  }
 }
 
 .modalImage {
   width: 300px;
-  height: 500px;
+  height: 450px;
 
   @include cardBorder;
 
