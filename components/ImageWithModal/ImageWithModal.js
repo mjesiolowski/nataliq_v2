@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowLeft, faArrowRight, faCoffee, faTimes, faTimesCircle,
@@ -17,6 +17,16 @@ const ImageWithModal = ({
 }) => {
   const [modalIndex, setModalIndex] = useState(0);
   const [isModalActive, setModalToActive] = useState(false);
+
+  const handleModalKeyDown = (e) => {
+    console.log(e);
+  };
+
+  useEffect(() => {
+    if (isModalActive) {
+      document.addEventListener('keydown', (e) => handleModalKeyDown(e));
+    }
+  }, [isModalActive]);
 
   const onImageClick = (i) => {
     setModalIndex(i);
@@ -72,7 +82,6 @@ const ImageWithModal = ({
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
         </div>
-        {/* TODO: change modal on swipe and arrows, remove navButtons on mobile */}
       </nav>
     </div>
   );
@@ -82,7 +91,6 @@ const ImageWithModal = ({
       <div>
         <button
           type='button'
-          // TODO - only on >tablet breakpoint, overlay?
           onClick={() => onImageClick(index)}
           className={styles.imageWithModal}
         >
@@ -99,7 +107,12 @@ const ImageWithModal = ({
       </div>
 
       {isModalActive && (
-      <div className={styles.modal}>
+      <div
+        className={styles.modal}
+        // onKeyPress={(e) => handleModalKeyDown(e)}
+        // tabIndex='0'
+        // onClick={console.log('test')}
+      >
         {/* <p>MODAL</p> */}
         {renderModal(images, modalIndex)}
       </div>

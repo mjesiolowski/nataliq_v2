@@ -25,11 +25,16 @@ import styles from './navbar.module.scss';
 // };
 
 const Navbar = () => {
-  console.log('Navbar');
   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
 
   const handleHamburgerClick = () => {
     setIsHamburgerActive(!isHamburgerActive);
+  };
+
+  const handleNavItemClick = (e) => {
+    if (e.target.href) {
+      setIsHamburgerActive(!isHamburgerActive);
+    }
   };
 
   return (
@@ -44,7 +49,7 @@ const Navbar = () => {
         </span>
       </button>
       <nav className={`${styles.navbar} ${isHamburgerActive ? styles.navbarActive : ''}`}>
-        <ul className={`${styles.navItems}`}>
+        <ul className={`${styles.navItems}`} onClick={(e) => handleNavItemClick(e)}>
           <li className={`${styles.navItem} ${styles.navItemHome}`}>
             <Link href='/'>
               <a className={styles.navLink}>Strona główna</a>
