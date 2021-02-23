@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowLeft, faArrowRight, faCoffee, faTimes, faTimesCircle,
@@ -18,36 +18,45 @@ const ImageWithModal = ({
   const [modalIndex, setModalIndex] = useState(0);
   const [isModalActive, setModalToActive] = useState(false);
 
-  const handleModalKeyDown = (e) => {
-    console.log(e);
-  };
-
-  useEffect(() => {
-    if (isModalActive) {
-      document.addEventListener('keydown', (e) => handleModalKeyDown(e));
-    }
-  }, [isModalActive]);
-
   const onImageClick = (i) => {
     setModalIndex(i);
     setModalToActive(true);
   };
 
   const onCloseModalClick = () => setModalToActive(false);
-
-  const onNextArrowClick = (imagesList, imageIndex) => {
+  // TODO - move to helpers
+  const onNextArrow = (imagesList, imageIndex) => {
     if (imageIndex === imagesList.length - 1) {
       return setModalIndex(0);
     }
     return setModalIndex(imageIndex + 1);
   };
-
-  const onPreviousArrowClick = (imagesList, imageIndex) => {
+  // TODO - move to helpers
+  const onPreviousArrow = (imagesList, imageIndex) => {
     if (imageIndex === 0) {
       return setModalIndex(imagesList.length - 1);
     }
     return setModalIndex(imageIndex - 1);
   };
+
+  useEffect(() => {
+    // TODO - move to helpers
+    // const handleModalKeyDown = (e) => {
+    //   if (e.code === 'ArrowRight') {
+    //     onNextArrow(images, modalIndex);
+    //   }
+
+    //   if (e.code === 'ArrowLeft') {
+    //     onPreviousArrow(images, modalIndex);
+    //   }
+    // };
+
+    if (isModalActive) {
+      document.addEventListener('keydown', (e) => handleModalKeyDown(e));
+    }
+
+    return document.removeEventListener('keydown', (e) => handleModalKeyDown(e));
+  }, [isModalActive, images, modalIndex]);
 
   const renderModal = (imagesList, imageIndex) => (
     <div className={styles.modalImageWrapper}>
@@ -69,7 +78,7 @@ const ImageWithModal = ({
           <button
             type='button'
             className={`${styles.modalNavButton} ${styles.modalNavPreviousArrow}`}
-            onClick={() => onPreviousArrowClick(images, modalIndex)}
+            onClick={() => onPreviousArrow(images, modalIndex)}
           >
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
@@ -77,7 +86,7 @@ const ImageWithModal = ({
           <button
             type='button'
             className={`${styles.modalNavButton} ${styles.modalNavNextArrow}`}
-            onClick={() => onNextArrowClick(images, modalIndex)}
+            onClick={() => onNextArrow(images, modalIndex)}
           >
             <FontAwesomeIcon icon={faArrowRight} />
           </button>
@@ -94,6 +103,7 @@ const ImageWithModal = ({
           onClick={() => onImageClick(index)}
           className={styles.imageWithModal}
         >
+          {/* TODO - HOC? */}
           <Image
             alt={alt}
             // desktopImage={desktopImage}
