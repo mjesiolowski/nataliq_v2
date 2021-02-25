@@ -5,9 +5,11 @@ import {
   getCollectionTitle,
 } from '../../lib/collection';
 import ImageWithModal from '../../components/ImageWithModal/ImageWithModal';
+import Image from '../../components/Image/Image';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import { COLLECTION, COLLECTION_NO_IMAGES } from '../../constants';
 import Footer from '../../components/Footer/Footer';
+import withModal from '../../components/ImageWithModal/withModal';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -53,15 +55,16 @@ export default function Collection({
         tabletImage,
         mobileImage,
       } = imageData;
+
+      const ImageWithModal2 = withModal(Image);
+
       return (
-        <ImageWithModal
+        <ImageWithModal2
           key={uuidv4()}
           index={index}
           alt={alt}
           title={title}
-          desktopImage={desktopImage}
-          tabletImage={tabletImage}
-          mobileImage={mobileImage}
+          image={desktopImage}
           images={images}
         />
       );
