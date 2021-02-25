@@ -9,9 +9,6 @@ import {
 const Image = ({
   alt,
   title,
-  desktopImage,
-  tabletImage,
-  mobileImage,
   image,
   className,
 }) => {
