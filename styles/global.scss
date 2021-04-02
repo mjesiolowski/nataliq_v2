@@ -1,0 +1,87 @@
+@import 'variables.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+}
+
+body::before {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background: url("../public/bg2.jpg") no-repeat center;
+  background-size: cover;
+}
+
+body::after {
+  content: "";
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-color: $transparent-black-light;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  body::before {
+    background: url("../public/bg.jpg") no-repeat center;
+    background-size: cover;
+  }
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.multipleCollectionWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  // min-height: 100vh;
+}
+
+.collectionTitle {
+  @include sectionTitle;
+}
+
+.multipleCollectionSection,
+.collectionSection {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.multipleCollectionContent,
+.collectionContent {
+  flex-grow: 1;
+}
+
+.multipleCollectionCards,
+.collectionPhotosWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.collectionNoImages {
+  @include sectionTitle;
+
+  color: white;
+}

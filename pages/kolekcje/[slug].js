@@ -2,9 +2,12 @@ import {
   getAllSlugs,
   getSubcollectionsSlugs,
   getCollectionCardDetails,
+  getCollectionTitle,
 } from '../../lib/collection';
-
 import CollectionCard from '../../components/CollectionCard/CollectionCard';
+import LinkButton from '../../components/LinkButton/LinkButton';
+import { COLLECTIONS } from '../../constants';
+import Footer from '../../components/Footer/Footer';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs({ isMultipleCollection: true });
@@ -26,18 +29,19 @@ export async function getStaticProps({ params }) {
 
   const subcollectionsSlugs = await getSubcollectionsSlugs(slug);
   const collectionCardDetailsList = await getCollectionCardDetails(subcollectionsSlugs);
+  const collectionTitle = await getCollectionTitle(slug);
 
   return {
     props: {
-      slug,
-      subcollectionsSlugs,
       collectionCardDetailsList,
+      collectionTitle,
     },
   };
 }
 
 export default function Collections({
   collectionCardDetailsList,
+  collectionTitle,
 }) {
   const renderSubcollectionCard = (collectionCardList) => collectionCardList.map((({
     isMultipleCollection,
@@ -54,9 +58,23 @@ export default function Collections({
     />
   )));
   return (
-    <>
-      <div>Kolekcje</div>
-      {renderSubcollectionCard(collectionCardDetailsList)}
-    </>
+    <section className='multipleCollectionSection'>
+      <div className='collectionTitle'>
+        {COLLECTIONS}
+        {' '}
+        {collectionTitle}
+      </div>
+      <main className='multipleCollectionContent'>
+        <LinkButton
+          href='/#collections'
+          content='Powrót'
+          className='backLink'
+        />
+        <div className='multipleCollectionCards'>
+          {renderSubcollectionCard(collectionCardDetailsList)}
+        </div>
+      </main>
+      <Footer />
+    </section>
   );
 }

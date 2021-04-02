@@ -9,6 +9,9 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
@@ -17,6 +20,11 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-markdown": "^4.3.1",
+    "sass": "^1.32.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

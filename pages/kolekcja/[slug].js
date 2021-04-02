@@ -2,8 +2,12 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   getAllSlugs,
   getCollectionImages,
+  getCollectionTitle,
 } from '../../lib/collection';
 import ImageWithModal from '../../components/ImageWithModal/ImageWithModal';
+import LinkButton from '../../components/LinkButton/LinkButton';
+import { COLLECTION, COLLECTION_NO_IMAGES } from '../../constants';
+import Footer from '../../components/Footer/Footer';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -23,11 +27,13 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const images = await getCollectionImages(slug);
+  const collectionTitle = await getCollectionTitle(slug);
 
   return {
     props: {
       slug,
       images,
+      collectionTitle,
     },
   };
 }
@@ -35,7 +41,9 @@ export async function getStaticProps({ params }) {
 export default function Collection({
   slug,
   images,
+  collectionTitle,
 }) {
+  const shouldShowImages = Boolean(images.length);
   const renderCollectionImages = (imagesData) => imagesData.map(
     (imageData, index) => {
       const {
@@ -61,15 +69,29 @@ export default function Collection({
   );
 
   return (
-    <>
-      {/* <Modal images={images} index={0} /> */}
-      <div>
-        Kolekcja
+    <section className='collectionSection'>
+      <div className='collectionTitle'>
+        {COLLECTION}
         {' '}
-        {slug}
+        {collectionTitle}
       </div>
-      {renderCollectionImages(images)}
-      {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
-    </>
+      <main className='collectionContent'>
+        <LinkButton
+          href='/#collections'
+          content='Powrót'
+          className='backLink'
+        />
+        {shouldShowImages ? (
+          <div className='collectionPhotosWrapper'>
+            {renderCollectionImages(images)}
+          </div>
+        ) : <p className='collectionNoImages'>{COLLECTION_NO_IMAGES}</p>}
+
+        {/* <Modal images={images} index={0} /> */}
+
+        {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
+      </main>
+      <Footer />
+    </section>
   );
 }

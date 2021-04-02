@@ -1,37 +1,88 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { BLOG_HREF } from '../../constants';
+import styles from './navbar.module.scss';
+
+// const Hamburger = () => {
+//   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
+
+//   const handleHamburgerClick = () => {
+//     setIsHamburgerActive(!isHamburgerActive);
+//   };
+
+//   return (
+//     <button
+//       type='button'
+//       className={`${styles.hamburger} ${isHamburgerActive && styles.hamburgerActive}`}
+//       onClick={() => handleHamburgerClick()}
+//     >
+//       <span className={styles.hamburgerBox}>
+//         <span className={styles.hamburgerInner} />
+//       </span>
+//     </button>
+//   );
+// };
 
 const Navbar = () => {
-  console.log('Navbar');
+  const [isHamburgerActive, setIsHamburgerActive] = useState(false);
+
+  const handleHamburgerClick = () => {
+    setIsHamburgerActive(!isHamburgerActive);
+  };
+
+  const handleNavItemClick = (e) => {
+    if (e.target.href) {
+      setIsHamburgerActive(!isHamburgerActive);
+    }
+  };
 
   return (
     <header>
-      <nav>
-        <div>Logo</div>
-        <ul>
-          <li>
+      <button
+        type='button'
+        className={`${styles.hamburger} ${isHamburgerActive ? styles.hamburgerActive : ''}`}
+        onClick={() => handleHamburgerClick()}
+      >
+        <span className={styles.hamburgerBox}>
+          <span className={styles.hamburgerInner} />
+        </span>
+      </button>
+      <nav className={`${styles.navbar} ${isHamburgerActive ? styles.navbarActive : ''}`}>
+        <ul className={`${styles.navItems}`} onClick={(e) => handleNavItemClick(e)}>
+          <li className={`${styles.navItem} ${styles.navItemHome}`}>
             <Link href='/'>
-              HOME
+              <a className={styles.navLink}>Strona główna</a>
             </Link>
           </li>
-          <li>
+          <li className={styles.navItem}>
             <Link href='/#collections'>
-              Kolekcje
+              <a className={styles.navLink}>Kolekcje</a>
             </Link>
           </li>
-          <li>
-            <Link href='/#about'>
-              O nas
+          <li className={styles.navItem}>
+            <Link href={`/${BLOG_HREF}1`} className={styles.navLink}>
+              <a className={styles.navLink}>Blog</a>
             </Link>
           </li>
-          <li>
-            <Link href='/#contact'>
-              Kontakt
+          {/* <li className={`${styles.navItem} ${styles.navItemLogo}`}>
+            <Link href='/'>
+              <Image className={styles.navLogoImage} src='/logo.png' alt='logo sklepu' width='150' height='64' />
+            </Link>
+          </li> */}
+          <li className={styles.navItem}>
+            <Link href='/' className={styles.navLink}>
+              <a className={styles.navLink}>Home</a>
             </Link>
           </li>
-          <li>
-            <Link href={`/${BLOG_HREF}1`}>
-              Blog
+          <li className={styles.navItem}>
+            <Link href='/#about' className={styles.navLink}>
+              <a className={styles.navLink}>O nas</a>
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link href='/#contact' className={styles.navLink}>
+              <a className={styles.navLink}>Kontakt</a>
             </Link>
           </li>
         </ul>

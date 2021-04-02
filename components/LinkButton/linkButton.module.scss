@@ -1,0 +1,35 @@
+@import '../../styles//variables.scss';
+
+.backToTopWrapper {
+  text-align: center;
+  margin: auto;
+  padding: 15px;
+}
+
+.backLink {
+  @include buttonLink($padding: 15px 50px, $font-size: $font-size-regular);
+
+  border: 2px solid black;
+  // text-align: center;
+  // margin: 0 auto;
+  // margin-right: auto;
+  // width: 100%;
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .buttonLink {
+    @include hover();
+
+    width: auto;
+  }
+}
+
+.showCollection {
+  @include buttonLink($padding: 15px 60px, $font-size: $font-size-regular);
+}
+
+// .backToPageBefore {
+//   @include buttonLink($padding: 5px 50px, $font-size: 24px);
+
+//   margin: 0 auto;
+// }

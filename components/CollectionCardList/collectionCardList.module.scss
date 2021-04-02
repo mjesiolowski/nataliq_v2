@@ -1,0 +1,16 @@
+@import '../../styles//variables.scss';
+
+.collections {
+  // background-color: $transparent-black;
+  min-height: 80vh;
+}
+
+.collectionCardsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.collectionCardsTitle {
+  @include sectionTitle;
+}

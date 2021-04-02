@@ -1,0 +1,26 @@
+@import '../../styles//variables.scss';
+
+.contact {
+  min-height: 50vh;
+  min-width: 300px;
+  // color: white;
+  text-align: center;
+}
+
+.contactTitle {
+  @include sectionTitle;
+}
+
+.contactWrapper {
+  background-color: $transparent-black;
+  padding: 15px;
+  max-width: 480px;
+  margin: 15px auto;
+  color: white;
+
+  @include cardBorder;
+}
+
+.contactAddress {
+  font-size: $font-size-medium;
+}
