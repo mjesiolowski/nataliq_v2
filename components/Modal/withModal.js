@@ -1,17 +1,14 @@
 import { useState } from 'react';
-import styles from './imageWithModal.module.scss';
+import styles from './modal.module.scss';
 import Modal from './Modal';
 
 const withModal = (ImageComponent) => (props) => {
   const {
     image, images, alt, title, index,
   } = props;
-  console.log({ props });
-  // const [modalIndex, setModalIndex] = useState(0);
   const [isModalActive, setModalToActive] = useState(false);
 
-  const onImageClick = (i) => {
-    // setModalIndex(i);
+  const onImageClick = () => {
     setModalToActive(true);
   };
 
