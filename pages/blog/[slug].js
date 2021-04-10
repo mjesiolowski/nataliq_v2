@@ -1,9 +1,8 @@
-import { v4 as uuidv4 } from 'uuid';
-import Link from 'next/link';
 import { getBlogPostsTitles } from '../../lib/collection';
-import { BLOG_POSTS_LIMIT, BLOG_POST_HREF, BLOG_HREF } from '../../constants';
+import { BLOG_POSTS_LIMIT, BLOG_HREF } from '../../constants';
 import Pagination from '../../components/Pagination/Pagination';
 import Navbar from '../../components/Navbar/Navbar';
+import BlogList from '../../components/BlogList/BlogList';
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
@@ -34,28 +33,19 @@ const Blog = ({ blogPostsTitles, maxSubpagesNumber, slug }) => {
       </>
     );
   }
-
-  const renderTitles = (blogPostsTitlesList) => blogPostsTitlesList.map(
-    ({ title }) => {
-      const titleHref = title.toLowerCase().split(' ').join('-');
-      return (
-        <li key={uuidv4()}>
-          <Link href={`/${BLOG_POST_HREF}${titleHref}`}>
-            <a>{title}</a>
-          </Link>
-        </li>
-      );
-    },
-  );
   return (
-    <>
+    <section className='blogListSection'>
       <Navbar />
-      <span>Blog</span>
-      <ul>
-        {renderTitles(blogPostsTitles)}
-      </ul>
-      <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
-    </>
+      <div className='blogListSectionContent'>
+        <span className='blogListTitle'>Blog</span>
+        <ul className='blogList'>
+          <BlogList titles={blogPostsTitles} />
+        </ul>
+        <div className='pagination'>
+          <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
+        </div>
+      </div>
+    </section>
   );
 };
 

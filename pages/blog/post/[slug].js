@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import { getBlogPost } from '../../../lib/collection';
 import Image from '../../../components/Image/Image';
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const blogTitle = (slug.charAt(0).toUpperCase() + slug.slice(1)).split('-').join(' ');
