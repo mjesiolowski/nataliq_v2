@@ -3,12 +3,12 @@ import Link from 'next/link';
 import styles from './blogList.module.scss';
 import { BLOG_POST_HREF } from '../../constants';
 
-const BlogList = ({ titles }) => {
-  console.log('BlogList');
+const BlogList = ({ list }) => {
+  console.log({ list });
 
   return (
     <section className={styles.blogList}>
-      {titles.map(
+      {/* {titles.map(
         ({ title }) => {
           const titleHref = title.toLowerCase().split(' ').join('-');
           return (
@@ -19,7 +19,8 @@ const BlogList = ({ titles }) => {
             </li>
           );
         },
-      )}
+      ) */}
+      }
     </section>
   );
 };
