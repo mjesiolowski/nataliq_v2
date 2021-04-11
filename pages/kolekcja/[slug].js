@@ -50,7 +50,7 @@ export default function Collection({
       const {
         alt,
         title,
-        desktopImage,
+        image,
       } = imageData;
 
       const ImageWithModal = withModal(Image);
@@ -61,7 +61,7 @@ export default function Collection({
           index={index}
           alt={alt}
           title={title}
-          image={desktopImage}
+          image={image}
           images={images}
         />
       );

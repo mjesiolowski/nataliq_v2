@@ -1,6 +1,21 @@
 import ReactMarkdown from 'react-markdown';
-import { getBlogPost } from '../../../lib/collection';
+import { getBlogPost, getBlogPostList } from '../../../lib/collection';
 import Image from '../../../components/Image/Image';
+
+export async function getStaticPaths() {
+  const allBlogPostList = await getBlogPostList();
+
+  const paths = allBlogPostList.map(({ slug }) => ({
+    params: {
+      slug,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
@@ -15,21 +30,19 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const BlogPost = ({ blogPostData }) => {
+const BlogPost = ({ blogPostData = {} }) => {
   const { content, title, image } = blogPostData;
-  console.log({ content, title, image });
   const {
-    desktopImage, tabletImage, mobileImage, alt,
-  } = image;
+    image: blogImage, alt,
+  } = image || {};
+
   return (
     <>
       <p>BLOGPOST</p>
       <Image
         alt={alt}
         title={title}
-        desktopImage={desktopImage}
-        tabletImage={tabletImage}
-        mobileImage={mobileImage}
+        image={blogImage}
       />
       <ReactMarkdown source={content} />
     </>
