@@ -15,7 +15,7 @@ const CollectionCard = ({
   title,
   slug,
 }) => {
-  const { desktopImage, tabletImage, mobileImage } = collectionMainImage;
+  const { image } = collectionMainImage;
   const alt = collectionMainImage?.alt || COLLECTION_DEFAULT_ALT_TEXT;
   const collectionTitle = title;
   const isMultipleCollection = isMultiple || false;
@@ -33,7 +33,7 @@ const CollectionCard = ({
           // desktopImage={desktopImage}
           // tabletImage={tabletImage}
           // mobileImage={mobileImage}
-          image={desktopImage}
+          image={image}
           className='collectionCard'
         />
       </div>
