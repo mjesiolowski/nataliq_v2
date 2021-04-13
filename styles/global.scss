@@ -85,3 +85,55 @@ body::after {
 
   color: white;
 }
+
+.blogListTitle,
+.blogPostTitle {
+  @include sectionTitle;
+}
+
+.blogListSectionContent {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      margin-top: 100px;
+      min-height: auto;
+    }
+  }
+}
+
+.blogPostSection {
+  color: white;
+  text-align: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      margin-top: 100px;
+    }
+  }
+}
+
+.blogPostContent {
+  background-color: $transparent-black;
+  color: white;
+  padding: 15px;
+  max-width: 768px;
+  margin: 15px 5px;
+  font-size: $font-size-medium;
+  line-height: 1.4;
+  letter-spacing: 0.7px;
+
+  @include cardBorder;
+
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      margin: 15px auto;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+  }
+}

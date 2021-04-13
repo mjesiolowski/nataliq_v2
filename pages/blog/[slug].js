@@ -1,62 +1,62 @@
-import { v4 as uuidv4 } from 'uuid';
-import Link from 'next/link';
-import { getBlogPostsTitles } from '../../lib/collection';
-import { BLOG_POSTS_LIMIT, BLOG_POST_HREF, BLOG_HREF } from '../../constants';
+import { getBlogPostList } from '../../lib/collection';
+import { BLOG_POSTS_LIMIT, BLOG_LIST } from '../../constants';
 import Pagination from '../../components/Pagination/Pagination';
 import Navbar from '../../components/Navbar/Navbar';
+import BlogList from '../../components/BlogList/BlogList';
+import LinkButton from '../../components/LinkButton/LinkButton';
 
-export async function getServerSideProps({ params }) {
+const getMaxSubpagesNumber = (length, limit) => Math.ceil(length / limit);
+
+export async function getStaticPaths() {
+  const allBlogPostList = await getBlogPostList();
+  const blogPostsLength = allBlogPostList.length;
+  const maxSubpagesNumber = getMaxSubpagesNumber(blogPostsLength, BLOG_POSTS_LIMIT);
+
+  const slugs = Array.from(Array(maxSubpagesNumber).keys()).map((item) => (item + 1));
+  const paths = slugs.map((slug) => ({
+    params: {
+      slug: slug.toString(),
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const skipValue = (Number(slug) - 1) * BLOG_POSTS_LIMIT;
-  const blogPostsTitles = await getBlogPostsTitles({ skip: skipValue, limit: BLOG_POSTS_LIMIT });
-  const allBlogPostsTitles = await getBlogPostsTitles();
-  const blogPostsLength = allBlogPostsTitles.length;
-  const maxSubpagesNumber = Math.ceil(blogPostsLength / BLOG_POSTS_LIMIT);
+  const currentBlogPostList = await getBlogPostList({ skip: skipValue, limit: BLOG_POSTS_LIMIT });
+  const allBlogPostList = await getBlogPostList();
+  const blogPostsLength = allBlogPostList.length;
+  const maxSubpagesNumber = getMaxSubpagesNumber(blogPostsLength, BLOG_POSTS_LIMIT);
 
   return {
     props: {
-      blogPostsTitles,
+      blogPostList: currentBlogPostList,
       maxSubpagesNumber,
       slug,
     },
   };
 }
 
-const Blog = ({ blogPostsTitles, maxSubpagesNumber, slug }) => {
-  if (slug > maxSubpagesNumber) {
-    return (
-      <>
-        <p>Ta strona nie istnieje.</p>
-        <Link href={`/${BLOG_HREF}1`}>
-          <a>Powrót do bloga</a>
-        </Link>
-      </>
-    );
-  }
-
-  const renderTitles = (blogPostsTitlesList) => blogPostsTitlesList.map(
-    ({ title }) => {
-      const titleHref = title.toLowerCase().split(' ').join('-');
-      return (
-        <li key={uuidv4()}>
-          <Link href={`/${BLOG_POST_HREF}${titleHref}`}>
-            <a>{title}</a>
-          </Link>
-        </li>
-      );
-    },
-  );
-  return (
-    <>
-      <Navbar />
-      <span>Blog</span>
-      <ul>
-        {renderTitles(blogPostsTitles)}
-      </ul>
+const Blog = ({ blogPostList, maxSubpagesNumber, slug }) => (
+  <section className='blogListSection'>
+    <Navbar />
+    <div className='blogListSectionContent'>
+      <span className='blogListTitle'>{BLOG_LIST}</span>
+      <BlogList list={blogPostList} />
+      <LinkButton
+        href='/'
+        content='Powrót'
+        className='backLink'
+      />
       <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
-    </>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Blog;

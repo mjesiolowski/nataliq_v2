@@ -1,0 +1,17 @@
+@import '../../styles//variables.scss';
+
+.paginationSection {
+  font-size: $font-size-medium;
+  margin-bottom: 50px;
+}
+
+.paginationSection > * {
+  margin-right: 10px;
+  font-size: $font-size-large;
+  text-decoration: none;
+  color: white;
+}
+
+.paginationSection > span {
+  font-size: 50px;
+}
