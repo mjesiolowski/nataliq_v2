@@ -7,41 +7,40 @@
   display: flex;
   flex-wrap: wrap;
   min-width: 280px;
-  min-height: 350px;
-  max-width: 300px;
+  max-width: 320px;
+  border-radius: 20px;
+  min-height: 600px;
 
   @include cardBorder;
+
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      flex: 0 1 46%;
+    }
+  }
 }
 
 .collectionTitle {
   color: white;
-  margin: 5px auto;
+  margin: auto;
+  padding: 15px;
+  text-align: center;
   font-size: $font-size-regular;
 }
 
 .collectionImage {
   flex-basis: 100%;
-  // max-height: 300px;
-
-  // & img {
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: contain;
-  // }
 }
 
 .collectionLink {
   @include buttonLink($padding: 10px, $font-size: 20px);
 
   margin: 10px auto;
-}
 
-@media (min-width: $breakpoint-tablet) {
-  .collectionLink {
-    @include hover();
-  }
-
-  .collectionTitle {
-    font-size: $font-size-large;
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      @include hover();
+    }
   }
 }
+

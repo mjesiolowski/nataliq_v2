@@ -24,8 +24,6 @@ const CollectionCard = ({
 
   return (
     <div className={styles.collectionCard}>
-      <h2 className={styles.collectionTitle}>{collectionTitle}</h2>
-
       <div className={styles.collectionImage}>
         <Image
           alt={alt}
@@ -37,7 +35,7 @@ const CollectionCard = ({
           className='collectionCard'
         />
       </div>
-
+      <h2 className={styles.collectionTitle}>{collectionTitle}</h2>
       <LinkButton
         href={collectionLink}
         content={COLLECTION_CARD_LINK_TEXT}
