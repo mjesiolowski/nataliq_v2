@@ -1,5 +1,5 @@
 import { getBlogPostList } from '../../lib/collection';
-import { BLOG_POSTS_LIMIT } from '../../constants';
+import { BLOG_POSTS_LIMIT, BLOG_LIST } from '../../constants';
 import Pagination from '../../components/Pagination/Pagination';
 import Navbar from '../../components/Navbar/Navbar';
 import BlogList from '../../components/BlogList/BlogList';
@@ -46,13 +46,9 @@ const Blog = ({ blogPostList, maxSubpagesNumber, slug }) => (
   <section className='blogListSection'>
     <Navbar />
     <div className='blogListSectionContent'>
-      <span className='blogListTitle'>Blog</span>
-      <ul className='blogList'>
-        <BlogList list={blogPostList} />
-      </ul>
-      <div className='pagination'>
-        <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
-      </div>
+      <span className='blogListTitle'>{BLOG_LIST}</span>
+      <BlogList list={blogPostList} />
+      <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
     </div>
   </section>
 );

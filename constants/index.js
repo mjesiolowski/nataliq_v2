@@ -17,3 +17,5 @@ export const CONTACT_US = 'Kontakt';
 
 export const COLLECTION = 'Kolekcja';
 export const COLLECTIONS = 'Kolekcje';
+
+export const BLOG_LIST = 'Lista wpisów';

@@ -29,7 +29,7 @@ const CollectionCard = ({
       <div className={styles.collectionImage}>
         <Image
           alt={alt}
-          title={title}
+          // title={title}
           // desktopImage={desktopImage}
           // tabletImage={tabletImage}
           // mobileImage={mobileImage}

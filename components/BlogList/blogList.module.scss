@@ -1,8 +1,22 @@
-.listItem {
-  padding: 10px 5px;
-  letter-spacing: 0.8px;
+@import '../../styles//variables.scss';
+
+.blogList {
+  flex-grow: 1;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  font-size: $font-size-large;
 }
 
-.listItem a {
+.listItem {
+  $font-size-large: 32px;
+}
+
+.listLink {
   text-decoration: none;
+  width: 100%;
+  display: block;
+  padding: 20px 5px;
+  letter-spacing: 0.8px;
 }

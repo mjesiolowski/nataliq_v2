@@ -86,7 +86,7 @@ body::after {
   color: white;
 }
 
-.blogListSection  * {
+.blogListSection * {
   color: white;
 }
 
@@ -100,16 +100,11 @@ body::after {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-}
 
-.blogList {
-  flex-grow: 1;
-  font-size: $font-size-medium;
-  list-style: none;
-  padding: 0;
-}
-
-.pagination {
-  font-size: $font-size-medium;
-  margin-bottom: 50px;
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      margin-top: 100px;
+      min-height: auto;
+    }
+  }
 }
