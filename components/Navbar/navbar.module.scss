@@ -95,7 +95,7 @@
 .navItem {
   flex: 0 1 100%;
   text-align: center;
-  min-height: 70px;
+  // min-height: 70px;
   display: flex;
   // align-items: center;
   // justify-content: center;
@@ -142,22 +142,22 @@
   .navItems {
     flex-wrap: nowrap;
     margin: 0 auto;
-    padding: 0 5px;
+    // padding: 0 5px;
     max-width: 1200px;
+    height: 70px;
   }
 
   .navItem {
     flex: 0 1 50%;
     align-items: center;
     justify-content: center;
+    margin: 0;
     padding: 0 5px;
+
+    @include hover();
   }
 
   .navLogoImage {
     cursor: pointer;
-  }
-
-  .navLink {
-    @include hover();
   }
 }

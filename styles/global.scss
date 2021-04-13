@@ -109,6 +109,12 @@ body::after {
 .blogPostSection {
   color: white;
   text-align: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    & {
+      margin-top: 100px;
+    }
+  }
 }
 
 .blogPostContent {
@@ -116,16 +122,18 @@ body::after {
   color: white;
   padding: 15px;
   max-width: 768px;
-  margin: 15px;
+  margin: 15px 5px;
   font-size: $font-size-medium;
-  line-height: 1.5;
+  line-height: 1.4;
   letter-spacing: 0.7px;
 
   @include cardBorder;
 
   @media (min-width: $breakpoint-tablet) {
     & {
-
+      margin: 15px auto;
+      letter-spacing: 1px;
+      line-height: 1.3;
     }
   }
 }

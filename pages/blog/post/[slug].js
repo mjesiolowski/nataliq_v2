@@ -34,11 +34,14 @@ export async function getStaticProps({ params }) {
 }
 
 const BlogPost = ({ blogPostData = {} }) => {
-  const { content, title, image } = blogPostData;
   const {
-    image: blogImage, alt,
-  } = image || {};
-  console.log({ blogPostData });
+    content, title, image, sys,
+  } = blogPostData;
+  const { image: blogImage, alt } = image || {};
+  const { publishedAt } = sys;
+
+  const publishDate = publishedAt.slice(0, 10);
+
   return (
     <>
       <Navbar />
@@ -51,6 +54,7 @@ const BlogPost = ({ blogPostData = {} }) => {
           className='blogPost'
         />
         <div className='blogPostContent'>
+          <p>{ publishDate }</p>
           <ReactMarkdown source={content} />
         </div>
         <LinkButton
