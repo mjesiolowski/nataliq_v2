@@ -52,7 +52,7 @@ const ModalUI = ({ imagesList, imageIndex, callbacks }) => {
       >
         <Image
           alt={imagesList[imageIndex].alt}
-          image={imagesList[imageIndex].desktopImage}
+          image={imagesList[imageIndex].image}
           title={imagesList[imageIndex].title}
           className='modalImage'
         />
