@@ -3,6 +3,7 @@ import { BLOG_POSTS_LIMIT, BLOG_LIST } from '../../constants';
 import Pagination from '../../components/Pagination/Pagination';
 import Navbar from '../../components/Navbar/Navbar';
 import BlogList from '../../components/BlogList/BlogList';
+import LinkButton from '../../components/LinkButton/LinkButton';
 
 const getMaxSubpagesNumber = (length, limit) => Math.ceil(length / limit);
 
@@ -48,6 +49,11 @@ const Blog = ({ blogPostList, maxSubpagesNumber, slug }) => (
     <div className='blogListSectionContent'>
       <span className='blogListTitle'>{BLOG_LIST}</span>
       <BlogList list={blogPostList} />
+      <LinkButton
+        href='/'
+        content='Powrót'
+        className='backLink'
+      />
       <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
     </div>
   </section>

@@ -19,3 +19,4 @@ export const COLLECTION = 'Kolekcja';
 export const COLLECTIONS = 'Kolekcje';
 
 export const BLOG_LIST = 'Lista wpisów';
+export const BLOG_LIST_GO_BACK = 'Powrót do listy wpisów';

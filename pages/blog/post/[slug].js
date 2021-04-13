@@ -1,6 +1,9 @@
 import ReactMarkdown from 'react-markdown';
 import { getBlogPost, getBlogPostList } from '../../../lib/collection';
 import Image from '../../../components/Image/Image';
+import Navbar from '../../../components/Navbar/Navbar';
+import LinkButton from '../../../components/LinkButton/LinkButton';
+import { BLOG_LIST_GO_BACK } from '../../../constants';
 
 export async function getStaticPaths() {
   const allBlogPostList = await getBlogPostList();
@@ -35,16 +38,27 @@ const BlogPost = ({ blogPostData = {} }) => {
   const {
     image: blogImage, alt,
   } = image || {};
-
+  console.log({ blogPostData });
   return (
     <>
-      <p>BLOGPOST</p>
-      <Image
-        alt={alt}
-        title={title}
-        image={blogImage}
-      />
-      <ReactMarkdown source={content} />
+      <Navbar />
+      <section className='blogPostSection'>
+        <p className='blogPostTitle'>{title}</p>
+        <Image
+          alt={alt}
+          // title={title}
+          image={blogImage}
+          className='blogPost'
+        />
+        <div className='blogPostContent'>
+          <ReactMarkdown source={content} />
+        </div>
+        <LinkButton
+          href='/blog/1'
+          content={BLOG_LIST_GO_BACK}
+          className='backLink'
+        />
+      </section>
     </>
   );
 };

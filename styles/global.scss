@@ -86,11 +86,8 @@ body::after {
   color: white;
 }
 
-.blogListSection * {
-  color: white;
-}
-
-.blogListTitle {
+.blogListTitle,
+.blogPostTitle {
   @include sectionTitle;
 }
 
@@ -105,6 +102,30 @@ body::after {
     & {
       margin-top: 100px;
       min-height: auto;
+    }
+  }
+}
+
+.blogPostSection {
+  color: white;
+  text-align: center;
+}
+
+.blogPostContent {
+  background-color: $transparent-black;
+  color: white;
+  padding: 15px;
+  max-width: 768px;
+  margin: 15px;
+  font-size: $font-size-medium;
+  line-height: 1.5;
+  letter-spacing: 0.7px;
+
+  @include cardBorder;
+
+  @media (min-width: $breakpoint-tablet) {
+    & {
+
     }
   }
 }
