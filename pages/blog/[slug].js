@@ -4,6 +4,7 @@ import Pagination from '../../components/Pagination/Pagination';
 import Navbar from '../../components/Navbar/Navbar';
 import BlogList from '../../components/BlogList/BlogList';
 import LinkButton from '../../components/LinkButton/LinkButton';
+import styles from '../../styles/pages.module.scss';
 
 const getMaxSubpagesNumber = (length, limit) => Math.ceil(length / limit);
 
@@ -44,10 +45,10 @@ export async function getStaticProps({ params }) {
 }
 
 const Blog = ({ blogPostList, maxSubpagesNumber, slug }) => (
-  <section className='blogListSection'>
+  <section className={styles.blogListSection}>
     <Navbar />
-    <div className='blogListSectionContent'>
-      <span className='blogListTitle'>{BLOG_LIST}</span>
+    <div className={styles.blogListSectionContent}>
+      <span className={styles.blogListTitle}>{BLOG_LIST}</span>
       <BlogList list={blogPostList} />
       <LinkButton
         href='/'

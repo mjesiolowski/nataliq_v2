@@ -6,6 +6,7 @@ import Footer from '../components/Footer/Footer';
 import LinkButton from '../components/LinkButton/LinkButton';
 import Hero from '../components/Hero/Hero';
 import { getAllSlugs, getCollectionCardDetails, getAboutUs } from '../lib/collection';
+import styles from '../styles/pages.module.scss';
 
 export async function getStaticProps() {
   const collectionSlugs = await getAllSlugs();
@@ -22,7 +23,7 @@ export async function getStaticProps() {
 }
 
 const App = ({ collectionCardDetailsList, aboutUsData }) => (
-  <div className='container'>
+  <div className={styles.container}>
     <Navbar />
     <Hero />
     <CollectionCardList

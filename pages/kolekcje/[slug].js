@@ -8,6 +8,7 @@ import CollectionCard from '../../components/CollectionCard/CollectionCard';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import { COLLECTIONS } from '../../constants';
 import Footer from '../../components/Footer/Footer';
+import styles from '../../styles/pages.module.scss';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs({ isMultipleCollection: true });
@@ -58,19 +59,19 @@ export default function Collections({
     />
   )));
   return (
-    <section className='multipleCollectionSection'>
-      <div className='collectionTitle'>
+    <section className={styles.multipleCollectionSection}>
+      <div className={styles.collectionTitle}>
         {COLLECTIONS}
         {' '}
         {collectionTitle}
       </div>
-      <main className='multipleCollectionContent'>
+      <main className={styles.multipleCollectionContent}>
         <LinkButton
           href='/#collections'
           content='Powrót'
           className='backLink'
         />
-        <div className='multipleCollectionCards'>
+        <div className={styles.multipleCollectionCards}>
           {renderSubcollectionCard(collectionCardDetailsList)}
         </div>
       </main>

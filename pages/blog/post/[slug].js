@@ -4,6 +4,7 @@ import Image from '../../../components/Image/Image';
 import Navbar from '../../../components/Navbar/Navbar';
 import LinkButton from '../../../components/LinkButton/LinkButton';
 import { BLOG_LIST_GO_BACK } from '../../../constants';
+import styles from '../../../styles/pages.module.scss';
 
 export async function getStaticPaths() {
   const allBlogPostList = await getBlogPostList();
@@ -33,7 +34,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const BlogPost = ({ blogPostData = {} }) => {
+const BlogPostPage = ({ blogPostData = {} }) => {
   const {
     content, title, image, sys,
   } = blogPostData;
@@ -45,15 +46,15 @@ const BlogPost = ({ blogPostData = {} }) => {
   return (
     <>
       <Navbar />
-      <section className='blogPostSection'>
-        <p className='blogPostTitle'>{title}</p>
+      <section className={styles.blogPostSection}>
+        <p className={styles.blogPostTitle}>{title}</p>
         <Image
           alt={alt}
           // title={title}
           image={blogImage}
           className='blogPost'
         />
-        <div className='blogPostContent'>
+        <div className={styles.blogPostContent}>
           <p>{ publishDate }</p>
           <ReactMarkdown source={content} />
         </div>
@@ -67,4 +68,4 @@ const BlogPost = ({ blogPostData = {} }) => {
   );
 };
 
-export default BlogPost;
+export default BlogPostPage;

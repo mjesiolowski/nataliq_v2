@@ -9,6 +9,7 @@ import LinkButton from '../../components/LinkButton/LinkButton';
 import { COLLECTION, COLLECTION_NO_IMAGES } from '../../constants';
 import Footer from '../../components/Footer/Footer';
 import withModal from '../../components/Modal/withModal';
+import styles from '../../styles/pages.module.scss';
 
 export async function getStaticPaths() {
   const slugs = await getAllSlugs();
@@ -69,27 +70,23 @@ export default function Collection({
   );
 
   return (
-    <section className='collectionSection'>
-      <div className='collectionTitle'>
+    <section className={styles.collectionSection}>
+      <div className={styles.collectionTitle}>
         {COLLECTION}
         {' '}
         {collectionTitle}
       </div>
-      <main className='collectionContent'>
+      <main className={styles.collectionContent}>
         <LinkButton
           href='/#collections'
           content='Powrót'
           className='backLink'
         />
         {shouldShowImages ? (
-          <div className='collectionPhotosWrapper'>
+          <div className={styles.collectionPhotosWrapper}>
             {renderCollectionImages(images)}
           </div>
-        ) : <p className='collectionNoImages'>{COLLECTION_NO_IMAGES}</p>}
-
-        {/* <Modal images={images} index={0} /> */}
-
-        {/* {isModalActive && <div>MODAL ACTIVE</div>} */}
+        ) : <p className={styles.collectionNoImages}>{COLLECTION_NO_IMAGES}</p>}
       </main>
       <Footer />
     </section>
