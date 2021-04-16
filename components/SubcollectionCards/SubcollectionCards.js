@@ -1,10 +1,10 @@
 import CollectionCard from '../CollectionCard/CollectionCard';
 import styles from './subcollectionCards.module.scss';
 
-const SubcollectionCards = ({ collectionCardList }) => (
+const SubcollectionCards = ({ subcolecionCardsData = [] }) => (
   <section className={styles.multipleCollectionCards}>
     {
-      collectionCardList.map((({
+      subcolecionCardsData.map((({
         isMultipleCollection,
         collectionMainImage,
         title,

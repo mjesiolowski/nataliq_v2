@@ -29,19 +29,19 @@ export async function getStaticProps({ params }) {
   const { slug } = params;
 
   const subcollectionsSlugs = await getSubcollectionsSlugs(slug);
-  const collectionCardDetailsList = await getCollectionCardDetails(subcollectionsSlugs);
+  const subcolecionCardsData = await getCollectionCardDetails(subcollectionsSlugs);
   const collectionTitle = await getCollectionTitle(slug);
 
   return {
     props: {
-      collectionCardDetailsList,
+      subcolecionCardsData,
       collectionTitle,
     },
   };
 }
 
 export default function Collections({
-  collectionCardDetailsList,
+  subcolecionCardsData,
   collectionTitle,
 }) {
   return (
@@ -57,7 +57,9 @@ export default function Collections({
           content='Powrót'
           className='backLink'
         />
-        <SubcollectionCards collectionCardList={collectionCardList} />
+        <SubcollectionCards
+          subcolecionCardsData={subcolecionCardsData}
+        />
       </main>
       <Footer />
     </section>
