@@ -4,7 +4,7 @@ import {
   getCollectionCardDetails,
   getCollectionTitle,
 } from '../../lib/collection';
-import CollectionCard from '../../components/CollectionCard/CollectionCard';
+import SubcollectionCards from '../../components/SubcollectionCards/SubcollectionCards';
 import LinkButton from '../../components/LinkButton/LinkButton';
 import { COLLECTIONS } from '../../constants';
 import Footer from '../../components/Footer/Footer';
@@ -44,20 +44,6 @@ export default function Collections({
   collectionCardDetailsList,
   collectionTitle,
 }) {
-  const renderSubcollectionCard = (collectionCardList) => collectionCardList.map((({
-    isMultipleCollection,
-    collectionMainImage,
-    title,
-    slug,
-  }) => (
-    <CollectionCard
-      key={title}
-      slug={slug}
-      isMultipleCollection={isMultipleCollection}
-      collectionMainImage={collectionMainImage}
-      title={title}
-    />
-  )));
   return (
     <section className={styles.multipleCollectionSection}>
       <div className={styles.collectionTitle}>
@@ -71,9 +57,7 @@ export default function Collections({
           content='Powrót'
           className='backLink'
         />
-        <div className={styles.multipleCollectionCards}>
-          {renderSubcollectionCard(collectionCardDetailsList)}
-        </div>
+        <SubcollectionCards collectionCardList={collectionCardList} />
       </main>
       <Footer />
     </section>
