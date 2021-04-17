@@ -29,14 +29,6 @@
   flex-grow: 1;
 }
 
-.multipleCollectionCards,
-.collectionPhotosWrapper {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-}
-
 .collectionNoImages {
   @include sectionTitle;
 
