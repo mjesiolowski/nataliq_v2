@@ -13,7 +13,7 @@ const withModal = (ImageComponent) => (props) => {
   };
 
   return (
-    <div>
+    <section>
       <button
         type='button'
         onClick={() => onImageClick(index)}
@@ -25,16 +25,12 @@ const withModal = (ImageComponent) => (props) => {
           title={title}
           className='imageWithModal'
         />
-        {/* {title && <h2 className={styles.imageTitle}>{title}</h2>} */}
       </button>
 
-      {isModalActive && (
-      <div>
-        {/* <p>MODAL</p> */}
-        {<Modal images={images} index={index} closeModal={() => setModalToActive(false)} />}
-      </div>
-      )}
-    </div>
+      {isModalActive
+        ? <Modal images={images} index={index} closeModal={() => setModalToActive(false)} />
+        : null}
+    </section>
 
   );
 };

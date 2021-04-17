@@ -1,7 +1,6 @@
 @import '../../styles//variables.scss';
 
 .hero {
-  // margin-top: 100px;
   background-color: $transparent-black;
   min-height: 100vh;
   display: flex;
@@ -16,37 +15,14 @@
   flex-wrap: wrap;
 }
 
-
 .heroLogoWrapper {
   flex-basis: 100%;
   text-align: center;
   margin-bottom: 50px;
 }
 
-
-// .heroTitle {
-//   margin: 0;
-//   padding: 0;
-//   color: white;
-//   font-size: 32px;
-// }
-
 .heroLink {
   @include buttonLink($padding: 20px, $font-size: 24px);
-  // display: inline-block;
-  // text-decoration: none;
-  // border-radius: 10px/30px;
-  // background-color: white;
-  // color: black;
-  // padding: 20px;
-  // font-size: 24px;
-  // transition: all 0.2s ease-in-out;
-  // transform: scale(0.99);
-
-  // &:hover {
-  //   background-color: white;
-  //   transform: scale(1);
-  // }
 }
 
 @media (min-width: $breakpoint-tablet) {

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   COLLECTION_DEFAULT_ALT_TEXT,
   COLLECTION_HREF,
@@ -23,14 +22,10 @@ const CollectionCard = ({
   const collectionLink = `/${isMultipleCollection ? COLLECTIONS_HREF : COLLECTION_HREF}${slug}`;
 
   return (
-    <div className={styles.collectionCard}>
+    <section className={styles.collectionCard}>
       <div className={styles.collectionImage}>
         <Image
           alt={alt}
-          // title={title}
-          // desktopImage={desktopImage}
-          // tabletImage={tabletImage}
-          // mobileImage={mobileImage}
           image={image}
           className='collectionCard'
         />
@@ -41,7 +36,7 @@ const CollectionCard = ({
         content={COLLECTION_CARD_LINK_TEXT}
         className='showCollection'
       />
-    </div>
+    </section>
   );
 };
 export default CollectionCard;

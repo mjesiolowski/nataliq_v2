@@ -50,7 +50,6 @@ const BlogPostPage = ({ blogPostData = {} }) => {
         <p className={styles.blogPostTitle}>{title}</p>
         <Image
           alt={alt}
-          // title={title}
           image={blogImage}
           className='blogPost'
         />

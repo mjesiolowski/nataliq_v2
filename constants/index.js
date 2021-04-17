@@ -17,6 +17,13 @@ export const CONTACT_US = 'Kontakt';
 
 export const COLLECTION = 'Kolekcja';
 export const COLLECTIONS = 'Kolekcje';
+export const OUR_COLLECTIONS = 'Nasze kolekcje';
 
 export const BLOG_LIST = 'Lista wpisów';
 export const BLOG_LIST_GO_BACK = 'Powrót do listy wpisów';
+
+export const NAV_HOME = 'NataliQ';
+export const NAV_COLLECTIONS = 'Kolekcje';
+export const NAV_BLOG = 'Blog';
+export const NAV_ABOUT = 'O nas';
+export const NAV_CONTACT = 'Kontakt';

@@ -5,26 +5,28 @@ import Image from '../Image/Image';
 
 const CollectionImages = ({ images }) => (
   <section className={styles.collectionImagesSection}>
-    { images.map((imageItem, index) => {
-      const {
-        alt,
-        title,
-        image,
-      } = imageItem;
+    {
+       images.map((imageItem, index) => {
+         const {
+           alt,
+           title,
+           image,
+         } = imageItem;
 
-      const ImageWithModal = withModal(Image);
+         const ImageWithModal = withModal(Image);
 
-      return (
-        <ImageWithModal
-          key={uuidv4()}
-          index={index}
-          alt={alt}
-          title={title}
-          image={image}
-          images={images}
-        />
-      );
-    })}
+         return (
+           <ImageWithModal
+             key={uuidv4()}
+             index={index}
+             alt={alt}
+             title={title}
+             image={image}
+             images={images}
+           />
+         );
+       })
+}
   </section>
 );
 
