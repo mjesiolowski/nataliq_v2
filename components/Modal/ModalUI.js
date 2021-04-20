@@ -17,7 +17,7 @@ const ModalUI = ({ imagesList, imageIndex, callbacks }) => {
           alt={imagesList[imageIndex].alt}
           image={imagesList[imageIndex].image}
           title={imagesList[imageIndex].title}
-          className='modalImage'
+          stylesName='modalImage'
         />
         <nav className={styles.modalNavigation}>
           <button

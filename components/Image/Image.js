@@ -6,13 +6,13 @@ const Image = ({
   alt,
   title,
   image,
-  className,
+  stylesName,
 }) => {
   const imageUrl = image?.url;
   const imgAlt = alt || COLLECTION_DEFAULT_ALT_TEXT;
 
   return (
-    <section className={`${styles.image} ${styles[className]}`}>
+    <section className={`${styles.image} ${styles[stylesName]}`}>
       <NextImage
         src={imageUrl}
         alt={imgAlt}

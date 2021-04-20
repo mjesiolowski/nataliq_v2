@@ -23,7 +23,7 @@ const withModal = (ImageComponent) => (props) => {
           alt={alt}
           image={image}
           title={title}
-          className='imageWithModal'
+          stylesName='imageWithModal'
         />
       </button>
 

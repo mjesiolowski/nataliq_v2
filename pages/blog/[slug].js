@@ -53,7 +53,7 @@ const Blog = ({ blogPostList, maxSubpagesNumber, slug }) => (
       <LinkButton
         href='/'
         content='Powrót'
-        className='backLink'
+        stylesName='backLink'
       />
       <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />
     </div>

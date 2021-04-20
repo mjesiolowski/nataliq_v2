@@ -27,14 +27,14 @@ const CollectionCard = ({
         <Image
           alt={alt}
           image={image}
-          className='collectionCard'
+          stylesName='collectionCard'
         />
       </div>
-      <h2 className={styles.collectionTitle}>{collectionTitle}</h2>
+      {/* <h2 className={styles.collectionTitle}>{collectionTitle}</h2> */}
       <LinkButton
         href={collectionLink}
-        content={COLLECTION_CARD_LINK_TEXT}
-        className='showCollection'
+        content={`${COLLECTION_CARD_LINK_TEXT} ${collectionTitle}`}
+        stylesName='collectionCardTitle'
       />
     </section>
   );

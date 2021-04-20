@@ -1,7 +1,6 @@
 @import '../../styles//variables.scss';
 
 .collections {
-  // background-color: $transparent-black;
   min-height: 80vh;
 }
 
@@ -9,6 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .collectionCardsTitle {

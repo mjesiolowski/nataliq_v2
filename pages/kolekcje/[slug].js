@@ -55,7 +55,7 @@ export default function Collections({
         <LinkButton
           href='/#collections'
           content='Powrót'
-          className='backLink'
+          stylesName='backLink'
         />
         <SubcollectionCards
           subcolecionCardsData={subcolecionCardsData}

@@ -55,7 +55,7 @@ export default function Collection({
         <LinkButton
           href='/#collections'
           content='Powrót'
-          className='backLink'
+          stylesName='backLink'
         />
         {shouldShowImages
           ? <CollectionImages images={images} />
