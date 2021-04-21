@@ -50,9 +50,8 @@ const BlogPostPage = ({ blogPostData = {} }) => {
         <p className={styles.blogPostTitle}>{title}</p>
         <Image
           alt={alt}
-          // title={title}
           image={blogImage}
-          className='blogPost'
+          stylesName='blogPost'
         />
         <div className={styles.blogPostContent}>
           <p>{ publishDate }</p>
@@ -61,7 +60,7 @@ const BlogPostPage = ({ blogPostData = {} }) => {
         <LinkButton
           href='/blog/1'
           content={BLOG_LIST_GO_BACK}
-          className='backLink'
+          stylesName='backLink'
         />
       </section>
     </>

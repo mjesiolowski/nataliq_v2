@@ -1,28 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { BLOG_HREF } from '../../constants';
+import {
+  BLOG_HREF, NAV_ABOUT, NAV_COLLECTIONS, NAV_HOME, NAV_BLOG, NAV_CONTACT,
+} from '../../constants';
 import styles from './navbar.module.scss';
-
-// const Hamburger = () => {
-//   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
-
-//   const handleHamburgerClick = () => {
-//     setIsHamburgerActive(!isHamburgerActive);
-//   };
-
-//   return (
-//     <button
-//       type='button'
-//       className={`${styles.hamburger} ${isHamburgerActive && styles.hamburgerActive}`}
-//       onClick={() => handleHamburgerClick()}
-//     >
-//       <span className={styles.hamburgerBox}>
-//         <span className={styles.hamburgerInner} />
-//       </span>
-//     </button>
-//   );
-// };
 
 const Navbar = () => {
   const [isHamburgerActive, setIsHamburgerActive] = useState(false);
@@ -50,39 +31,29 @@ const Navbar = () => {
       </button>
       <nav className={`${styles.navbar} ${isHamburgerActive ? styles.navbarActive : ''}`}>
         <ul className={`${styles.navItems}`} onClick={(e) => handleNavItemClick(e)}>
-          <li className={`${styles.navItem} ${styles.navItemHome}`}>
+          <li className={styles.navItem}>
             <Link href='/'>
-              <a className={styles.navLink}>Strona główna</a>
+              <a className={styles.navLink}>{NAV_HOME}</a>
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link href='/#collections'>
-              <a className={styles.navLink}>Kolekcje</a>
+              <a className={styles.navLink}>{NAV_COLLECTIONS}</a>
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link href={`/${BLOG_HREF}1`} className={styles.navLink}>
-              <a className={styles.navLink}>Blog</a>
-            </Link>
-          </li>
-          {/* <li className={`${styles.navItem} ${styles.navItemLogo}`}>
-            <Link href='/'>
-              <Image className={styles.navLogoImage} src='/logo.png' alt='logo sklepu' width='150' height='64' />
-            </Link>
-          </li> */}
-          <li className={styles.navItem}>
-            <Link href='/' className={styles.navLink}>
-              <a className={styles.navLink}>Home</a>
+              <a className={styles.navLink}>{NAV_BLOG}</a>
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link href='/#about' className={styles.navLink}>
-              <a className={styles.navLink}>O nas</a>
+              <a className={styles.navLink}>{NAV_ABOUT}</a>
             </Link>
           </li>
           <li className={styles.navItem}>
             <Link href='/#contact' className={styles.navLink}>
-              <a className={styles.navLink}>Kontakt</a>
+              <a className={styles.navLink}>{NAV_CONTACT}</a>
             </Link>
           </li>
         </ul>

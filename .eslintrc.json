@@ -22,7 +22,7 @@
     "ecmaFeatures": {
       "jsx": true
     }
-  },
+ },
   "settings": {
     "react": {
       "version": "detect"
@@ -33,6 +33,9 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/react-in-jsx-scope": "off",
     "linebreak-style": "off",
-    "jsx-quotes": [2, "prefer-single"]
+    "jsx-quotes": [2, "prefer-single"],
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   }
 }

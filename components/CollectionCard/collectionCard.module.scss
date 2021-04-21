@@ -4,12 +4,10 @@
   background-color: $transparent-black;
   flex: 0 1 40%;
   margin: 15px;
-  display: flex;
-  flex-wrap: wrap;
   min-width: 280px;
   max-width: 320px;
   border-radius: 20px;
-  min-height: 600px;
+  min-height: 400px;
 
   @include cardBorder;
 
@@ -18,18 +16,6 @@
       flex: 0 1 46%;
     }
   }
-}
-
-.collectionTitle {
-  color: white;
-  margin: auto;
-  padding: 15px;
-  text-align: center;
-  font-size: $font-size-regular;
-}
-
-.collectionImage {
-  flex-basis: 100%;
 }
 
 .collectionLink {
@@ -43,4 +29,3 @@
     }
   }
 }
-

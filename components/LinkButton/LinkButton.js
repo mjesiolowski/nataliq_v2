@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import styles from './linkButton.module.scss';
 
-const LinkButton = ({ href, content, className }) => (
-  <section className={styles.backToTopWrapper}>
+const LinkButton = ({ href, content, stylesName }) => (
+  <section className={styles.linkButtonSection}>
     <Link href={href}>
-      <a className={styles[className]}>
+      <a className={styles[stylesName]}>
         <span>
           {content}
         </span>

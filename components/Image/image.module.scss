@@ -9,8 +9,8 @@
   height: 400px;
 
   & > div {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
   }
 }
 
@@ -24,8 +24,10 @@
 }
 
 .modalImage {
-  width: 500px;
-  height: 750px;
+  max-width: 500px;
+  max-height: 750px;
+  width: 50vw;
+  height: 90vh;
 
   @include cardBorder;
 

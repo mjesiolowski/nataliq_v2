@@ -13,7 +13,6 @@ $font-size-medium: 20px;
 @mixin buttonLink($padding, $font-size) {
   display: inline-block;
   text-decoration: none;
-  // border: 2px solid $main-color;
   border-radius: 50px;
   background-color: white;
   color: black;
@@ -35,18 +34,12 @@ $font-size-medium: 20px;
 }
 
 @mixin sectionTitle {
-  // color: white;
-  // background-color: white;
   color: $main-color;
   text-align: center;
   padding: 15px;
   margin: 15px auto;
   font-size: $font-size-extra-large;
   max-width: 768px;
-
-  // @media (min-width: $breakpoint-tablet) {
-  //   font-size: $font-size-extra-large;
-  // }
 }
 
 @mixin cardBorder {
