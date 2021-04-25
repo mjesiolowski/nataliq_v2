@@ -22,6 +22,10 @@ export const OUR_COLLECTIONS = 'Nasze kolekcje';
 export const BLOG_LIST = 'Lista wpisów';
 export const BLOG_LIST_GO_BACK = 'Powrót do listy wpisów';
 
+export const BACK_TO_TOP = 'Na górę strony';
+export const BACK_TO_COLLECTIONS = 'Powrót do naszych kolekcji';
+export const BACK = 'Powrót';
+
 export const NAV_HOME = 'NataliQ';
 export const NAV_COLLECTIONS = 'Kolekcje';
 export const NAV_BLOG = 'Blog';

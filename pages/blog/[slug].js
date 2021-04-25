@@ -1,5 +1,5 @@
 import { getBlogPostList } from '../../lib/collection';
-import { BLOG_POSTS_LIMIT, BLOG_LIST } from '../../constants';
+import { BLOG_POSTS_LIMIT, BLOG_LIST, BACK } from '../../constants';
 import Pagination from '../../components/Pagination/Pagination';
 import Navbar from '../../components/Navbar/Navbar';
 import BlogList from '../../components/BlogList/BlogList';
@@ -52,7 +52,7 @@ const Blog = ({ blogPostList, maxSubpagesNumber, slug }) => (
       <BlogList list={blogPostList} />
       <LinkButton
         href='/'
-        content='Powrót'
+        content={BACK}
         stylesName='backLink'
       />
       <Pagination subpagesCount={maxSubpagesNumber} slug={slug} />

@@ -22,6 +22,7 @@ const ModalUI = ({ imagesList, imageIndex, callbacks }) => {
         <nav className={styles.modalNavigation}>
           <button
             type='button'
+            aria-label='close modal'
             className={`${styles.modalNavButton} ${styles.modalNavCloseButton}`}
             onClick={() => onCloseModalClick()}
           >
@@ -30,6 +31,7 @@ const ModalUI = ({ imagesList, imageIndex, callbacks }) => {
           <div className={styles.modalNavArrowButtonWrapper}>
             <button
               type='button'
+              aria-label='show previous photo'
               className={`${styles.modalNavButton} ${styles.modalNavPreviousArrow}`}
               onClick={() => onPreviousArrow(imagesList, imageIndex)}
             >
@@ -38,6 +40,7 @@ const ModalUI = ({ imagesList, imageIndex, callbacks }) => {
 
             <button
               type='button'
+              aria-label='show next photo'
               className={`${styles.modalNavButton} ${styles.modalNavNextArrow}`}
               onClick={() => onNextArrow(imagesList, imageIndex)}
             >

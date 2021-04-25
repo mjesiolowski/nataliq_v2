@@ -21,6 +21,7 @@ const Navbar = () => {
   return (
     <header>
       <button
+        aria-label='toggle hamburger menu'
         type='button'
         className={`${styles.hamburger} ${isHamburgerActive ? styles.hamburgerActive : ''}`}
         onClick={() => handleHamburgerClick()}

@@ -4,7 +4,7 @@ import {
   getCollectionTitle,
 } from '../../lib/collection';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import { COLLECTION, COLLECTION_NO_IMAGES } from '../../constants';
+import { COLLECTION, COLLECTION_NO_IMAGES, BACK_TO_COLLECTIONS } from '../../constants';
 import Footer from '../../components/Footer/Footer';
 import CollectionImages from '../../components/CollectionImages/CollectionImages';
 import styles from '../../styles/pages.module.scss';
@@ -54,7 +54,7 @@ export default function Collection({
       <main className={styles.collectionContent}>
         <LinkButton
           href='/#collections'
-          content='Powrót'
+          content={BACK_TO_COLLECTIONS}
           stylesName='backLink'
         />
         {shouldShowImages

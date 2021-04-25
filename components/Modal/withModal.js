@@ -15,6 +15,7 @@ const withModal = (ImageComponent) => (props) => {
   return (
     <section>
       <button
+        aria-label='open modal'
         type='button'
         onClick={() => onImageClick(index)}
         className={styles.imageWithModal}

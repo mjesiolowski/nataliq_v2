@@ -6,7 +6,7 @@ import {
 } from '../../lib/collection';
 import SubcollectionCards from '../../components/SubcollectionCards/SubcollectionCards';
 import LinkButton from '../../components/LinkButton/LinkButton';
-import { COLLECTIONS } from '../../constants';
+import { COLLECTIONS, BACK_TO_COLLECTIONS } from '../../constants';
 import Footer from '../../components/Footer/Footer';
 import styles from '../../styles/pages.module.scss';
 
@@ -54,7 +54,7 @@ export default function Collections({
       <main className={styles.multipleCollectionContent}>
         <LinkButton
           href='/#collections'
-          content='Powrót'
+          content={BACK_TO_COLLECTIONS}
           stylesName='backLink'
         />
         <SubcollectionCards

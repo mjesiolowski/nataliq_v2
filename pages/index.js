@@ -7,6 +7,7 @@ import LinkButton from '../components/LinkButton/LinkButton';
 import Hero from '../components/Hero/Hero';
 import { getAllSlugs, getCollectionCardDetails, getAboutUs } from '../lib/collection';
 import styles from '../styles/pages.module.scss';
+import { BACK_TO_TOP } from '../constants';
 
 export async function getStaticProps() {
   const collectionSlugs = await getAllSlugs();
@@ -35,7 +36,7 @@ const App = ({ collectionCardDetailsList, aboutUsData }) => (
     <Contact />
     <LinkButton
       href='/#hero'
-      content='Powrót'
+      content={BACK_TO_TOP}
       stylesName='backLink'
     />
     <Footer />
