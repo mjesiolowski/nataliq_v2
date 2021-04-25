@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { getBlogPost, getBlogPostList } from '../../../lib/collection';
 import Image from '../../../components/Image/Image';
 import Navbar from '../../../components/Navbar/Navbar';
@@ -24,8 +24,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
 
-  const blogTitle = (slug.charAt(0).toUpperCase() + slug.slice(1)).split('-').join(' ');
-  const blogPostData = await getBlogPost(blogTitle);
+  const blogPostData = await getBlogPost(slug);
 
   return {
     props: {
@@ -36,10 +35,11 @@ export async function getStaticProps({ params }) {
 
 const BlogPostPage = ({ blogPostData = {} }) => {
   const {
-    content, title, image, sys,
+    content = {}, title, image, sys = {},
   } = blogPostData;
   const { image: blogImage, alt } = image || {};
-  const { publishedAt } = sys;
+  const { publishedAt = '' } = sys;
+  const { json } = content;
 
   const publishDate = publishedAt.slice(0, 10);
 
@@ -55,7 +55,7 @@ const BlogPostPage = ({ blogPostData = {} }) => {
         />
         <div className={styles.blogPostContent}>
           <p>{ publishDate }</p>
-          <ReactMarkdown source={content} />
+          { documentToReactComponents(json) }
         </div>
         <LinkButton
           href='/blog/1'
